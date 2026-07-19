@@ -36,3 +36,9 @@ examples:
 warnings: []
 recommendations:
   - Leere Suchtexte sollten vor dem Aufruf geprüft werden, auch wenn sie im getesteten Build ungefährlich waren.
+quality:
+  documentation: complete
+  experiments: complete
+  edge_cases: partial
+  regression: yes
+  confidence: high

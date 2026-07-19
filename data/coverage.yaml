@@ -1,0 +1,11 @@
+categories:
+  String:
+    known_total: 18
+  Number:
+    known_total: 3
+  Date:
+    known_total: null
+  CSV:
+    known_total: null
+  Runtime:
+    known_total: null

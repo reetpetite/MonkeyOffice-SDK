@@ -3,14 +3,26 @@ required:
   - name
   - category
   - status
+  - summary
   - signature
   - returns
   - research
+  - verified_builds
   - examples
+  - quality
 
 allowed_status:
   - planned
   - testing
+  - observed
   - verified
   - dangerous
   - inconclusive
+  - hypothesis
+
+quality_fields:
+  - documentation
+  - experiments
+  - edge_cases
+  - regression
+  - confidence

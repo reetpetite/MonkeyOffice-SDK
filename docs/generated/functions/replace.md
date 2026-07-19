@@ -1,8 +1,9 @@
 # `Replace()`
 
 **SDK-ID:** `MOF-STR-001`  
-**Status:** `verified`  
-**Kategorie:** `String`
+**Status:** ✅ `verified`  
+**Kategorie:** `String`  
+**Getestete Builds:** 249
 
 Ersetzt den ersten Treffer eines Suchtexts.
 
@@ -39,6 +40,14 @@ Replace("ABC", "", "X")
 ```
 
 Ergebnis: `ABC`
+
+## Qualitätsstatus
+
+- **documentation:** `complete`
+- **experiments:** `complete`
+- **edge_cases:** `partial`
+- **regression:** `True`
+- **confidence:** `high`
 
 ## Forschungsgrundlage
 

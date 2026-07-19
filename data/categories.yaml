@@ -1,0 +1,19 @@
+categories:
+  - id: string
+    name: String
+    sdk_prefix: STR
+  - id: number
+    name: Number
+    sdk_prefix: NUM
+  - id: date
+    name: Date
+    sdk_prefix: DAT
+  - id: csv
+    name: CSV
+    sdk_prefix: CSV
+  - id: runtime
+    name: Runtime
+    sdk_prefix: RUN
+  - id: language
+    name: Language
+    sdk_prefix: LNG
