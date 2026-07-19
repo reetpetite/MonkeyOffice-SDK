@@ -1,0 +1,16 @@
+required:
+  - id
+  - name
+  - category
+  - status
+  - signature
+  - returns
+  - research
+  - examples
+
+allowed_status:
+  - planned
+  - testing
+  - verified
+  - dangerous
+  - inconclusive

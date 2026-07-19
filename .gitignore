@@ -1,21 +1,4 @@
+__pycache__/
+*.pyc
+.venv/
 .DS_Store
-.AppleDouble
-.LSOverride
-
-# Editor-Dateien
-.vscode/
-.idea/
-*.swp
-*~
-
-# Temporäre Dateien
-*.tmp
-*.bak
-*.log
-
-# Lokale Testdaten und Bankexporte
-private/
-test-data/private/
-*.csv
-*.xlsx
-*.xls
