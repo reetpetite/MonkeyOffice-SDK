@@ -1,0 +1,28 @@
+id: MOF-STR-013
+name: Lower
+category: String
+status: verified
+summary: Wandelt einen String in Kleinbuchstaben um.
+signature:
+  parameters:
+  - name: text
+    type: string
+returns: string
+properties: {}
+research:
+- MO-012
+verified_builds:
+- application: MonKey Office 2025
+  build: 249
+  platform: macOS
+examples:
+- expression: Lower("AbC")
+  expected: abc
+warnings: []
+recommendations: []
+quality:
+  documentation: complete
+  experiments: complete
+  edge_cases: partial
+  regression: partial
+  confidence: high

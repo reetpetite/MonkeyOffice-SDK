@@ -45,8 +45,8 @@ Ergebnis: `ABC`
 
 - **documentation:** `complete`
 - **experiments:** `complete`
-- **edge_cases:** `partial`
-- **regression:** `True`
+- **edge_cases:** `complete`
+- **regression:** `partial`
 - **confidence:** `high`
 
 ## Forschungsgrundlage

@@ -1,0 +1,28 @@
+id: MOF-STR-010
+name: Trim
+category: String
+status: verified
+summary: Entfernt Leerraum am Anfang und Ende eines Strings.
+signature:
+  parameters:
+  - name: text
+    type: string
+returns: string
+properties: {}
+research:
+- MO-011
+verified_builds:
+- application: MonKey Office 2025
+  build: 249
+  platform: macOS
+examples:
+- expression: Trim("  ABC  ")
+  expected: ABC
+warnings: []
+recommendations: []
+quality:
+  documentation: complete
+  experiments: complete
+  edge_cases: partial
+  regression: partial
+  confidence: high

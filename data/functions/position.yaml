@@ -1,0 +1,39 @@
+id: MOF-STR-004
+name: Position
+category: String
+status: verified
+summary: Ermittelt die Position eines Treffers innerhalb eines Texts.
+signature:
+  parameters:
+  - name: text
+    type: string
+  - name: search
+    type: string
+  - name: occurrence
+    type: number
+  - name: start
+    type: number
+returns: number
+properties:
+  case_sensitive: false
+  overlapping_matches_counted: true
+  index_base: 1
+  empty_search: 0
+research:
+- MO-005
+- MO-018
+verified_builds:
+- application: MonKey Office 2025
+  build: 249
+  platform: macOS
+examples:
+- expression: Position("AAAA", "AA", 2, 1)
+  expected: '2'
+warnings: []
+recommendations: []
+quality:
+  documentation: complete
+  experiments: complete
+  edge_cases: complete
+  regression: partial
+  confidence: high

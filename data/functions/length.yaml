@@ -1,0 +1,30 @@
+id: MOF-STR-007
+name: Length
+category: String
+status: verified
+summary: Gibt die Länge eines Strings zurück.
+signature:
+  parameters:
+  - name: text
+    type: string
+returns: number
+properties: {}
+research:
+- MO-008
+verified_builds:
+- application: MonKey Office 2025
+  build: 249
+  platform: macOS
+examples:
+- expression: Length("ABC")
+  expected: '3'
+- expression: Length("")
+  expected: '0'
+warnings: []
+recommendations: []
+quality:
+  documentation: complete
+  experiments: complete
+  edge_cases: partial
+  regression: partial
+  confidence: high

@@ -1,0 +1,35 @@
+id: MOF-STR-017
+name: NthField
+category: String
+status: verified
+summary: Gibt ein bestimmtes, durch einen Separator getrenntes Feld zurück.
+signature:
+  parameters:
+  - name: text
+    type: string
+  - name: separator
+    type: string
+  - name: index
+    type: number
+returns: string
+properties:
+  empty_fields_preserved: true
+  case_sensitive_separator: false
+  empty_separator: empty_string
+research:
+- MO-015
+verified_builds:
+- application: MonKey Office 2025
+  build: 249
+  platform: macOS
+examples:
+- expression: NthField("A,,B", ",", 2)
+  expected: ''
+warnings: []
+recommendations: []
+quality:
+  documentation: complete
+  experiments: complete
+  edge_cases: complete
+  regression: partial
+  confidence: high

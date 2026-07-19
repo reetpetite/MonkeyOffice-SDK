@@ -1,8 +1,8 @@
-id: MOF-STR-001
-name: Replace
+id: MOF-STR-003
+name: ReplaceAll
 category: String
 status: verified
-summary: Ersetzt den ersten Treffer eines Suchtexts.
+summary: Ersetzt alle nicht überlappenden Treffer eines Suchtexts.
 signature:
   parameters:
   - name: text
@@ -15,28 +15,24 @@ returns: string
 properties:
   case_sensitive: false
   overlapping: false
-  first_only: true
+  first_only: false
   empty_search: unchanged
 research:
-- MO-002
-- MO-023
+- MO-003
+- MO-024
 verified_builds:
 - application: MonKey Office 2025
   build: 249
   platform: macOS
 examples:
-- expression: Replace("AAAA", "AA", "X")
-  expected: XAA
-- expression: Replace("ABABA", "ABA", "X")
-  expected: XBA
-- expression: Replace("AaAa", "aa", "X")
-  expected: XAa
-- expression: Replace("ABC", "", "X")
+- expression: ReplaceAll("AAAA", "AA", "X")
+  expected: XX
+- expression: ReplaceAll("AaAa", "aa", "X")
+  expected: XX
+- expression: ReplaceAll("ABC", "", "X")
   expected: ABC
 warnings: []
-recommendations:
-- Leere Suchtexte sollten vor dem Aufruf geprüft werden, auch wenn sie im getesteten
-  Build ungefährlich waren.
+recommendations: []
 quality:
   documentation: complete
   experiments: complete

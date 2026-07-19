@@ -1,0 +1,31 @@
+id: MOF-STR-006
+name: StrComp
+category: String
+status: verified
+summary: Vergleicht zwei Strings unter Beachtung der Groß- und Kleinschreibung.
+signature:
+  parameters:
+  - name: left
+    type: string
+  - name: right
+    type: string
+returns: number
+properties:
+  case_sensitive: true
+research:
+- MO-007
+verified_builds:
+- application: MonKey Office 2025
+  build: 249
+  platform: macOS
+examples:
+- expression: StrComp("A", "a")
+  expected: experimentell verschieden
+warnings: []
+recommendations: []
+quality:
+  documentation: complete
+  experiments: complete
+  edge_cases: partial
+  regression: partial
+  confidence: high

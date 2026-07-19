@@ -1,24 +1,41 @@
 # Entwicklungszyklen
 
-## Sprint 1 – Infrastruktur
+## Sprint 2 – String Library
 
 ### Ziel
 
-Eine reproduzierbare Build- und Qualitätssicherung für strukturierte Sprachdaten.
+Die bereits experimentell verifizierten Stringfunktionen in das strukturierte Datenmodell überführen.
+
+### Enthalten
+
+- Replace
+- ReplaceAll
+- Middle
+- Position
+- PatternCount
+- StrComp
+- Length
+- Left
+- Right
+- Trim
+- LTrim
+- RTrim
+- Lower
+- Upper
+- Proper
+- CountFields
+- NthField
 
 ### Definition of Done
 
-- [x] GitHub Actions führt den Build bei Push und Pull Request aus
-- [x] SDK-IDs und Kategorien werden validiert
-- [x] doppelte IDs und Funktionsnamen werden erkannt
-- [x] Qualitätsfelder sind verpflichtend
-- [x] Funktionsindex wird automatisch erzeugt
-- [x] Kategorienübersicht wird automatisch erzeugt
-- [x] Forschungsindex wird automatisch erzeugt
-- [x] Statistik und Abdeckung werden automatisch erzeugt
+- [x] jede bekannte Stringfunktion besitzt eine YAML-Datei
+- [x] jede Aussage verweist auf Forschungs-IDs
+- [x] getesteter Build ist dokumentiert
+- [x] bekannte Gefahren sind markiert
+- [x] Beispiele und Qualitätsstatus sind vorhanden
+- [ ] Regressionstests vollständig aus YAML generiert
+- [ ] Unicode- und Extremwerttests abgeschlossen
 
-### Bekannte Grenzen
+### Bewusste Grenzen
 
-- Forschungsdateien werden noch nicht auf physische Existenz geprüft
-- interne Markdown-Links werden noch nicht separat validiert
-- Testskripte werden noch nicht aus YAML erzeugt
+Einige einfache Funktionen sind zwar verifiziert, aber ihre Randfälle sind noch nicht vollständig erforscht. Sie erhalten deshalb bei `quality.edge_cases` den Wert `partial`.

@@ -1,0 +1,36 @@
+id: MOF-STR-002
+name: Middle
+category: String
+status: verified
+summary: Gibt einen Teilstring ab einer angegebenen Position zurück.
+signature:
+  parameters:
+  - name: text
+    type: string
+  - name: start
+    type: number
+  - name: length
+    type: number
+returns: string
+properties:
+  index_base: 1
+  position_zero: special_behavior
+research:
+- MO-001
+verified_builds:
+- application: MonKey Office 2025
+  build: 249
+  platform: macOS
+examples:
+- expression: Middle("ABCDE", 2, 2)
+  expected: BC
+warnings:
+- Position 0 verhält sich nicht wie die reguläre 1-basierte Indizierung.
+recommendations:
+- Startpositionen explizit ab 1 verwenden.
+quality:
+  documentation: complete
+  experiments: complete
+  edge_cases: partial
+  regression: partial
+  confidence: high

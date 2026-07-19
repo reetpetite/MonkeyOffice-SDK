@@ -1,0 +1,30 @@
+id: MOF-STR-009
+name: Right
+category: String
+status: verified
+summary: Gibt die letzten Zeichen eines Strings zurück.
+signature:
+  parameters:
+  - name: text
+    type: string
+  - name: length
+    type: number
+returns: string
+properties: {}
+research:
+- MO-010
+verified_builds:
+- application: MonKey Office 2025
+  build: 249
+  platform: macOS
+examples:
+- expression: Right("ABCDE", 2)
+  expected: DE
+warnings: []
+recommendations: []
+quality:
+  documentation: complete
+  experiments: complete
+  edge_cases: partial
+  regression: partial
+  confidence: high

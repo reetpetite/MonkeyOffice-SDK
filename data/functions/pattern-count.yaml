@@ -1,0 +1,36 @@
+id: MOF-STR-005
+name: PatternCount
+category: String
+status: dangerous
+summary: Zählt Treffer eines Suchtexts innerhalb eines Texts.
+signature:
+  parameters:
+  - name: text
+    type: string
+  - name: search
+    type: string
+returns: number
+properties:
+  case_sensitive: false
+  overlapping_matches_counted: true
+  empty_search: hangs_application
+research:
+- MO-006
+- MO-022
+verified_builds:
+- application: MonKey Office 2025
+  build: 249
+  platform: macOS
+examples:
+- expression: PatternCount("AAAA", "AA")
+  expected: '3'
+warnings:
+- Ein leerer Suchtext kann MonKey Office zum Hängen bringen.
+recommendations:
+- Vor jedem Aufruf mit `Length(search) > 0` prüfen, dass der Suchtext nicht leer ist.
+quality:
+  documentation: complete
+  experiments: complete
+  edge_cases: complete
+  regression: partial
+  confidence: high
