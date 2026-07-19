@@ -16,14 +16,12 @@ SYMBOL_REGISTRY = ROOT / "data" / "language-symbols" / "registry.json"
 
 IDENTIFIER_RE = re.compile(r"[A-Za-z_][A-Za-z0-9_]*")
 NUMBER_RE = re.compile(
-    r"""
-    (?:
-        (?:\d+\.\d*|\.\d+|\d+)
-        (?:[eE][+-]?\d+)?
-    )
-    """,
-    re.VERBOSE,
+    r"(?:(?:\d+\.\d*|\.\d+|\d+)(?:[eE][+-]?\d+)?)"
 )
+STRUCTURAL_PUNCTUATION = {
+    "(": "lparen",
+    ")": "rparen",
+}
 
 
 @dataclass(frozen=True)
@@ -100,6 +98,15 @@ def tokenize(source: str) -> list[Token]:
         start = offset
         start_line = line
         start_column = column
+
+        structural_kind = STRUCTURAL_PUNCTUATION.get(char)
+        if structural_kind:
+            tokens.append(
+                Token(structural_kind, char, start, start + 1, line, column)
+            )
+            offset += 1
+            column += 1
+            continue
 
         if char == '"':
             offset += 1
@@ -196,33 +203,20 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Tokenisiert MonKey-Office-Quelltext mit der Symbol-Registry."
     )
-    parser.add_argument(
-        "path",
-        nargs="?",
-        help="Quelldatei; ohne Pfad wird von stdin gelesen",
-    )
-    parser.add_argument(
-        "--json",
-        action="store_true",
-        help="Tokens als JSON ausgeben",
-    )
+    parser.add_argument("path", nargs="?", help="Quelldatei; sonst stdin")
+    parser.add_argument("--json", action="store_true", help="Tokens als JSON")
     return parser.parse_args(argv)
 
 
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(sys.argv[1:] if argv is None else argv)
-    source = (
-        Path(args.path).read_text(encoding="utf-8")
-        if args.path
-        else sys.stdin.read()
-    )
+    source = Path(args.path).read_text(encoding="utf-8") if args.path else sys.stdin.read()
 
     try:
         tokens = tokenize(source)
     except TokenizeError as exc:
         print(
-            f"Tokenisierung fehlgeschlagen bei "
-            f"{exc.line}:{exc.column}: {exc}",
+            f"Tokenisierung fehlgeschlagen bei {exc.line}:{exc.column}: {exc}",
             file=sys.stderr,
         )
         return 1

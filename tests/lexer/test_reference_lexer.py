@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import importlib.util
+import sys
 import unittest
 from pathlib import Path
 
@@ -10,7 +11,6 @@ MODULE_PATH = ROOT / "tools" / "monkey_tokenize.py"
 spec = importlib.util.spec_from_file_location("monkey_tokenize", MODULE_PATH)
 assert spec is not None and spec.loader is not None
 module = importlib.util.module_from_spec(spec)
-import sys
 sys.modules[spec.name] = module
 spec.loader.exec_module(module)
 
@@ -18,34 +18,32 @@ spec.loader.exec_module(module)
 class ReferenceLexerTests(unittest.TestCase):
     def test_verified_keywords_are_case_insensitive(self) -> None:
         tokens = module.tokenize("dim Amount\nSeT Result")
-        symbols = [
-            token.symbol_id
-            for token in tokens
-            if token.kind == "symbol"
-        ]
+        symbols = [t.symbol_id for t in tokens if t.kind == "symbol"]
         self.assertEqual(symbols, ["kw-dim", "kw-set"])
 
     def test_verified_word_operators_are_registry_driven(self) -> None:
         tokens = module.tokenize("a AND b or NOT c")
-        symbols = [
-            token.symbol_id
-            for token in tokens
-            if token.kind == "symbol"
-        ]
+        symbols = [t.symbol_id for t in tokens if t.kind == "symbol"]
         self.assertEqual(symbols, ["op-and", "op-or", "op-not"])
 
     def test_power_operator_is_recognized(self) -> None:
         tokens = module.tokenize("2 ^ 3 ^ 2")
-        powers = [
-            token for token in tokens if token.symbol_id == "op-power"
-        ]
-        self.assertEqual(len(powers), 2)
+        self.assertEqual(
+            len([t for t in tokens if t.symbol_id == "op-power"]),
+            2,
+        )
+
+    def test_parentheses_are_structural_tokens(self) -> None:
+        tokens = module.tokenize("(a)")
+        self.assertEqual(
+            [token.kind for token in tokens],
+            ["lparen", "identifier", "rparen", "eof"],
+        )
 
     def test_numbers_and_identifiers_are_distinct(self) -> None:
         tokens = module.tokenize("value 12 3.5 .25 1e3")
-        kinds = [token.kind for token in tokens[:-1]]
         self.assertEqual(
-            kinds,
+            [token.kind for token in tokens[:-1]],
             ["identifier", "number", "number", "number", "number"],
         )
 

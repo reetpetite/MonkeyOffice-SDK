@@ -8,6 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 VALIDATORS = (
     "validate_types.py",
     "validate_language_symbols.py",
+    "validate_operators.py",
     "validate_diagnostics.py",
     "validate_conformance.py",
 )

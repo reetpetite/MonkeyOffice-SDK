@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "1.0",
+  "operators": [
+    {
+      "id": "operator-and",
+      "symbolId": "op-and",
+      "fixity": "infix",
+      "precedence": 10,
+      "associativity": "left",
+      "evaluation": "eager",
+      "status": "verified",
+      "evidence": [
+        "spec/expressions.md"
+      ],
+      "notes": [
+        "Shares precedence with OR.",
+        "Does not short-circuit."
+      ]
+    },
+    {
+      "id": "operator-not",
+      "symbolId": "op-not",
+      "fixity": "prefix",
+      "precedence": 20,
+      "associativity": "none",
+      "evaluation": "eager",
+      "status": "verified",
+      "evidence": [
+        "spec/expressions.md"
+      ],
+      "notes": [
+        "Prefix binding is represented explicitly for the reference parser."
+      ]
+    },
+    {
+      "id": "operator-or",
+      "symbolId": "op-or",
+      "fixity": "infix",
+      "precedence": 10,
+      "associativity": "left",
+      "evaluation": "eager",
+      "status": "verified",
+      "evidence": [
+        "spec/expressions.md"
+      ],
+      "notes": [
+        "Shares precedence with AND.",
+        "Does not short-circuit."
+      ]
+    },
+    {
+      "id": "operator-power",
+      "symbolId": "op-power",
+      "fixity": "infix",
+      "precedence": 30,
+      "associativity": "left",
+      "evaluation": "eager",
+      "status": "verified",
+      "evidence": [
+        "spec/expressions.md"
+      ],
+      "notes": [
+        "Associates from the left."
+      ]
+    }
+  ]
+}
