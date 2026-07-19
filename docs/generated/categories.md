@@ -1,5 +1,11 @@
 # Kategorien
 
+## Number
+
+- [`FTextToNumber()`](functions/ftext-to-number.md)
+- [`NumToText()`](functions/num-to-text.md)
+- [`TextToNumber()`](functions/text-to-number.md)
+
 ## String
 
 - [`CountFields()`](functions/count-fields.md)

@@ -5,6 +5,7 @@
 | `MO-001` | [`Middle()`](functions/middle.md) |
 | `MO-002` | [`Replace()`](functions/replace.md) |
 | `MO-003` | [`ReplaceAll()`](functions/replace-all.md) |
+| `MO-004` | [`NumToText()`](functions/num-to-text.md) |
 | `MO-005` | [`Position()`](functions/position.md) |
 | `MO-006` | [`PatternCount()`](functions/pattern-count.md) |
 | `MO-007` | [`StrComp()`](functions/str-comp.md) |
@@ -20,3 +21,5 @@
 | `MO-022` | [`PatternCount()`](functions/pattern-count.md) |
 | `MO-023` | [`Replace()`](functions/replace.md) |
 | `MO-024` | [`ReplaceAll()`](functions/replace-all.md) |
+| `MO-025` | [`TextToNumber()`](functions/text-to-number.md) |
+| `MO-026` | [`FTextToNumber()`](functions/ftext-to-number.md) |

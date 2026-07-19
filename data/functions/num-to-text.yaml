@@ -1,0 +1,30 @@
+id: MOF-NUM-001
+name: NumToText
+category: Number
+status: verified
+summary: Wandelt einen numerischen Wert in Text um.
+signature:
+  parameters:
+  - name: number
+    type: number
+returns: string
+properties: {}
+research:
+- MO-004
+verified_builds:
+- application: MonKey Office 2025
+  build: 249
+  platform: macOS
+examples:
+- expression: NumToText(123)
+  expected: '123'
+warnings: []
+recommendations:
+- Formatierungsdetails wie Dezimal- und Tausendertrennzeichen sollten build- und localeabhängig
+  getestet werden.
+quality:
+  documentation: complete
+  experiments: complete
+  edge_cases: partial
+  regression: partial
+  confidence: high

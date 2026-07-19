@@ -1,41 +1,28 @@
 # Entwicklungszyklen
 
-## Sprint 2 – String Library
+## Sprint 3 – Number Library
 
 ### Ziel
 
-Die bereits experimentell verifizierten Stringfunktionen in das strukturierte Datenmodell überführen.
+Die bereits experimentell verifizierten Zahlenfunktionen in das strukturierte Datenmodell überführen.
 
 ### Enthalten
 
-- Replace
-- ReplaceAll
-- Middle
-- Position
-- PatternCount
-- StrComp
-- Length
-- Left
-- Right
-- Trim
-- LTrim
-- RTrim
-- Lower
-- Upper
-- Proper
-- CountFields
-- NthField
+- NumToText
+- TextToNumber
+- FTextToNumber
 
 ### Definition of Done
 
-- [x] jede bekannte Stringfunktion besitzt eine YAML-Datei
+- [x] jede bekannte Zahlenfunktion besitzt eine YAML-Datei
 - [x] jede Aussage verweist auf Forschungs-IDs
 - [x] getesteter Build ist dokumentiert
-- [x] bekannte Gefahren sind markiert
+- [x] localeabhängige Risiken sind markiert
 - [x] Beispiele und Qualitätsstatus sind vorhanden
-- [ ] Regressionstests vollständig aus YAML generiert
-- [ ] Unicode- und Extremwerttests abgeschlossen
+- [x] ein manueller Regressionstest ist vorhanden
+- [ ] Locale-Matrix vollständig getestet
+- [ ] Präzision, Rundung und Grenzwerte vollständig untersucht
 
 ### Bewusste Grenzen
 
-Einige einfache Funktionen sind zwar verifiziert, aber ihre Randfälle sind noch nicht vollständig erforscht. Sie erhalten deshalb bei `quality.edge_cases` den Wert `partial`.
+`NumToText()` ist grundsätzlich verifiziert, aber Formatierungsdetails und Grenzfälle sind noch nicht vollständig erforscht.

@@ -1,0 +1,40 @@
+id: MOF-NUM-002
+name: TextToNumber
+category: Number
+status: verified
+summary: Liest aus einem Text einen ganzzahligen numerischen Wert.
+signature:
+  parameters:
+  - name: text
+    type: string
+returns: number
+properties:
+  decimal_fraction_discarded: true
+  empty_string: 0
+  comma_decimal_input: integer_part_only
+  negative_values_supported: true
+research:
+- MO-025
+verified_builds:
+- application: MonKey Office 2025
+  build: 249
+  platform: macOS
+examples:
+- expression: TextToNumber("123")
+  expected: '123'
+- expression: TextToNumber("123,45")
+  expected: '123'
+- expression: TextToNumber("-123,45")
+  expected: '-123'
+- expression: TextToNumber("")
+  expected: '0'
+warnings:
+- Nachkommastellen werden im getesteten Build nicht übernommen.
+recommendations:
+- Für Geldbeträge mit Nachkommastellen stattdessen FTextToNumber() verwenden.
+quality:
+  documentation: complete
+  experiments: complete
+  edge_cases: complete
+  regression: partial
+  confidence: high

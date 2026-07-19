@@ -1,6 +1,6 @@
 # Statistik
 
-**Funktionen insgesamt:** 17  
+**Funktionen insgesamt:** 20  
 **Erfasste Builds:** 249
 
 ## Status
@@ -8,7 +8,7 @@
 | Status | Anzahl |
 |---|---:|
 | ⚠️ dangerous | 1 |
-| ✅ verified | 16 |
+| ✅ verified | 19 |
 
 ## Kategorien und Abdeckung
 
@@ -16,6 +16,6 @@
 |---|---:|---:|---:|
 | CSV | 0 | unbekannt | – |
 | Date | 0 | unbekannt | – |
-| Number | 0 | 3 | 0.0 % |
+| Number | 3 | 3 | 100.0 % |
 | Runtime | 0 | unbekannt | – |
 | String | 17 | 17 | 100.0 % |
