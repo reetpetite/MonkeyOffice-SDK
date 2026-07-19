@@ -11,7 +11,9 @@ The test format is defined by:
 ## Current status
 
 The format is a working draft. The example files demonstrate the intended
-structure but are not yet executed by `tools/build.py`.
+structure and are validated by `tools/validate_conformance.py`.
+
+They are not yet executed by a parser or runtime adapter.
 
 ## Principles
 
@@ -35,5 +37,31 @@ examples/
 
 ## Validation
 
-A future tool will validate all conformance files against `schema.json` and will
-be added to the normal build pipeline.
+Run:
+
+```bash
+python tools/validate_conformance.py
+```
+
+The validator:
+
+1. validates `schema.json` itself as JSON Schema Draft 2020-12,
+2. validates every other JSON file below `tests/conformance/`,
+3. checks referenced evidence documents,
+4. checks referenced external AST fixtures,
+5. enforces selected cross-field consistency rules,
+6. exits with a non-zero status when validation fails.
+
+The files are processed in deterministic path order.
+
+## Build integration
+
+Until the repository build runner invokes the validator directly, use:
+
+```bash
+python tools/build.py
+python tools/validate_conformance.py
+```
+
+A later sprint will add this validator to the normal build pipeline after the
+existing `tools/build.py` orchestration has been reviewed.
