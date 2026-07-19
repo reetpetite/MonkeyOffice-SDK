@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "1.0",
+  "types": [
+    {
+      "id": "number",
+      "kind": "language",
+      "status": "verified",
+      "description": "Numeric value",
+      "runtimeModel": "IEEE-754 binary64"
+    },
+    {
+      "id": "string",
+      "kind": "language",
+      "status": "verified",
+      "description": "String value"
+    },
+    {
+      "id": "boolean",
+      "kind": "language",
+      "status": "verified",
+      "description": "Boolean value"
+    },
+    {
+      "id": "unknown",
+      "kind": "analysis",
+      "status": "implementation",
+      "description": "Type information is not yet available"
+    },
+    {
+      "id": "error",
+      "kind": "analysis",
+      "status": "implementation",
+      "description": "Earlier analysis failed; suppress dependent cascades"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://reetpetite.github.io/MonkeyOffice-SDK/data/types/schema.json",
+  "title": "MonKey Office semantic type registry",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "types"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+$"
+    },
+    "types": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/type"
+      },
+      "minItems": 1
+    }
+  },
+  "$defs": {
+    "type": {
+      "type": "object",
+      "required": [
+        "id",
+        "kind",
+        "status",
+        "description"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*$"
+        },
+        "kind": {
+          "enum": [
+            "language",
+            "analysis"
+          ]
+        },
+        "status": {
+          "enum": [
+            "verified",
+            "inferred",
+            "implementation"
+          ]
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "runtimeModel": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}
