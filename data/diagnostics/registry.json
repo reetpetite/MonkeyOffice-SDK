@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "1.0",
+  "diagnostics": [
+    {
+      "code": "MO-LEX-0001",
+      "phase": "lexer",
+      "severity": "error",
+      "summary": "Invalid character",
+      "status": "active",
+      "introducedIn": "0.1",
+      "documentation": "model/diagnostics.md"
+    },
+    {
+      "code": "MO-LEX-0002",
+      "phase": "lexer",
+      "severity": "error",
+      "summary": "Unterminated string literal",
+      "status": "active",
+      "introducedIn": "0.1",
+      "documentation": "model/diagnostics.md"
+    },
+    {
+      "code": "MO-LEX-0003",
+      "phase": "lexer",
+      "severity": "error",
+      "summary": "Malformed numeric literal",
+      "status": "active",
+      "introducedIn": "0.1",
+      "documentation": "model/diagnostics.md"
+    },
+    {
+      "code": "MO-PAR-0001",
+      "phase": "parser",
+      "severity": "error",
+      "summary": "Unexpected token",
+      "status": "active",
+      "introducedIn": "0.1",
+      "documentation": "model/diagnostics.md"
+    },
+    {
+      "code": "MO-PAR-0002",
+      "phase": "parser",
+      "severity": "error",
+      "summary": "Expected token",
+      "status": "active",
+      "introducedIn": "0.1",
+      "documentation": "model/diagnostics.md"
+    },
+    {
+      "code": "MO-SEM-0001",
+      "phase": "semantic",
+      "severity": "error",
+      "summary": "Unknown identifier",
+      "status": "active",
+      "introducedIn": "0.1",
+      "documentation": "model/diagnostics.md"
+    },
+    {
+      "code": "MO-SEM-0002",
+      "phase": "semantic",
+      "severity": "error",
+      "summary": "Duplicate declaration",
+      "status": "active",
+      "introducedIn": "0.1",
+      "documentation": "model/diagnostics.md"
+    },
+    {
+      "code": "MO-SEM-0003",
+      "phase": "semantic",
+      "severity": "error",
+      "summary": "Type mismatch",
+      "status": "active",
+      "introducedIn": "0.1",
+      "documentation": "model/diagnostics.md"
+    },
+    {
+      "code": "MO-RUN-0001",
+      "phase": "runtime",
+      "severity": "error",
+      "summary": "Division by zero",
+      "status": "active",
+      "introducedIn": "0.1",
+      "documentation": "model/diagnostics.md"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://reetpetite.github.io/MonkeyOffice-SDK/data/diagnostics/schema.json",
+  "title": "MonKey Office diagnostic registry",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "diagnostics"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+$"
+    },
+    "diagnostics": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/diagnostic"
+      },
+      "uniqueItems": true
+    }
+  },
+  "$defs": {
+    "diagnostic": {
+      "type": "object",
+      "required": [
+        "code",
+        "phase",
+        "severity",
+        "summary",
+        "status"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "type": "string",
+          "pattern": "^MO-(LEX|PAR|SEM|FMT|RUN|CFG)-[0-9]{4}$"
+        },
+        "phase": {
+          "enum": [
+            "lexer",
+            "parser",
+            "semantic",
+            "formatter",
+            "runtime",
+            "configuration"
+          ]
+        },
+        "severity": {
+          "enum": [
+            "error",
+            "warning",
+            "information",
+            "hint"
+          ]
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "active",
+            "deprecated",
+            "reserved"
+          ]
+        },
+        "introducedIn": {
+          "type": "string",
+          "minLength": 1
+        },
+        "deprecatedIn": {
+          "type": "string",
+          "minLength": 1
+        },
+        "documentation": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}
