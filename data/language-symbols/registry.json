@@ -1,0 +1,110 @@
+{
+  "schemaVersion": "1.0",
+  "symbols": [
+    {
+      "id": "kw-dim",
+      "kind": "keyword",
+      "spelling": "dim",
+      "canonicalSpelling": "DIM",
+      "caseInsensitive": true,
+      "status": "verified",
+      "evidence": [
+        "spec/grammar.md",
+        "model/semantic-analysis.md"
+      ],
+      "description": "Introduces a variable declaration.",
+      "role": "declaration",
+      "evaluation": "not-applicable"
+    },
+    {
+      "id": "kw-set",
+      "kind": "keyword",
+      "spelling": "set",
+      "canonicalSpelling": "SET",
+      "caseInsensitive": true,
+      "status": "verified",
+      "evidence": [
+        "spec/grammar.md",
+        "model/semantic-analysis.md"
+      ],
+      "description": "Introduces an assignment.",
+      "role": "assignment",
+      "evaluation": "not-applicable"
+    },
+    {
+      "id": "op-and",
+      "kind": "operator",
+      "spelling": "AND",
+      "canonicalSpelling": "AND",
+      "caseInsensitive": true,
+      "status": "verified",
+      "evidence": [
+        "spec/expressions.md"
+      ],
+      "description": "Boolean conjunction.",
+      "arity": "binary",
+      "precedenceGroup": "logical-shared",
+      "associativity": "left",
+      "evaluation": "eager",
+      "notes": [
+        "Shares precedence with OR.",
+        "Does not short-circuit."
+      ]
+    },
+    {
+      "id": "op-not",
+      "kind": "operator",
+      "spelling": "NOT",
+      "canonicalSpelling": "NOT",
+      "caseInsensitive": true,
+      "status": "verified",
+      "evidence": [
+        "spec/expressions.md"
+      ],
+      "description": "Boolean negation with wide-scope parsing.",
+      "arity": "unary",
+      "precedenceGroup": "logical-wide-not",
+      "associativity": "none",
+      "evaluation": "eager"
+    },
+    {
+      "id": "op-or",
+      "kind": "operator",
+      "spelling": "OR",
+      "canonicalSpelling": "OR",
+      "caseInsensitive": true,
+      "status": "verified",
+      "evidence": [
+        "spec/expressions.md"
+      ],
+      "description": "Boolean disjunction.",
+      "arity": "binary",
+      "precedenceGroup": "logical-shared",
+      "associativity": "left",
+      "evaluation": "eager",
+      "notes": [
+        "Shares precedence with AND.",
+        "Does not short-circuit."
+      ]
+    },
+    {
+      "id": "op-power",
+      "kind": "operator",
+      "spelling": "^",
+      "canonicalSpelling": "^",
+      "caseInsensitive": false,
+      "status": "verified",
+      "evidence": [
+        "spec/expressions.md"
+      ],
+      "description": "Exponentiation operator.",
+      "arity": "binary",
+      "precedenceGroup": "power",
+      "associativity": "left",
+      "evaluation": "eager",
+      "notes": [
+        "Verified to associate from the left."
+      ]
+    }
+  ]
+}

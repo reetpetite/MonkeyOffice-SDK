@@ -3,19 +3,24 @@ from pathlib import Path
 import subprocess
 import sys
 
-ROOT=Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[1]
 
-VALIDATORS=(
+VALIDATORS = (
     "validate_types.py",
+    "validate_language_symbols.py",
     "validate_diagnostics.py",
     "validate_conformance.py",
 )
 
-def main()->int:
+def main() -> int:
     for script in VALIDATORS:
-        subprocess.run([sys.executable,str(ROOT/"tools"/script)],cwd=ROOT,check=True)
+        subprocess.run(
+            [sys.executable, str(ROOT / "tools" / script)],
+            cwd=ROOT,
+            check=True,
+        )
     print("Alle Registry-Validatoren erfolgreich ausgeführt.")
     return 0
 
-if __name__=="__main__":
+if __name__ == "__main__":
     raise SystemExit(main())
