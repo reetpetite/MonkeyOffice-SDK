@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "0.1",
+  "id": "MO-CF-NUM-001",
+  "title": "Na is not unequal to itself",
+  "category": "runtime",
+  "status": "draft",
+  "tags": [
+    "numbers",
+    "nan",
+    "comparison"
+  ],
+  "source": {
+    "text": "Na <> Na",
+    "entryPoint": "expression"
+  },
+  "expectation": {
+    "parse": {
+      "accepted": true
+    },
+    "runtime": {
+      "outcome": "value",
+      "valueType": "boolean",
+      "value": false
+    }
+  },
+  "evidence": {
+    "level": "verified",
+    "documents": [
+      "evidence/runtime/special-numeric-values.md"
+    ],
+    "builds": [
+      249
+    ]
+  }
+}

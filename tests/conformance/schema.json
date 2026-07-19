@@ -1,0 +1,293 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/monkeyoffice/conformance-test.schema.json",
+  "title": "MonKey Office Conformance Test",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "id",
+    "title",
+    "category",
+    "status",
+    "source",
+    "expectation",
+    "evidence"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "const": "0.1"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^MO-CF-[A-Z0-9]+-[0-9]{3,}$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "category": {
+      "enum": [
+        "lexical",
+        "syntax",
+        "ast",
+        "semantic",
+        "runtime",
+        "diagnostic",
+        "regression"
+      ]
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "verified",
+        "deprecated"
+      ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "text",
+        "entryPoint"
+      ],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "entryPoint": {
+          "enum": [
+            "program",
+            "statement",
+            "expression"
+          ]
+        },
+        "locale": {
+          "type": "string"
+        }
+      }
+    },
+    "expectation": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "parse": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "accepted"
+          ],
+          "properties": {
+            "accepted": {
+              "type": "boolean"
+            }
+          }
+        },
+        "ast": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "comparisonMode"
+          ],
+          "properties": {
+            "comparisonMode": {
+              "enum": [
+                "exact",
+                "structural",
+                "semantic"
+              ]
+            },
+            "inline": {
+              "type": "object"
+            },
+            "fixture": {
+              "type": "string"
+            }
+          },
+          "oneOf": [
+            {
+              "required": [
+                "inline"
+              ]
+            },
+            {
+              "required": [
+                "fixture"
+              ]
+            }
+          ]
+        },
+        "semantic": {
+          "type": "object"
+        },
+        "runtime": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "outcome"
+          ],
+          "properties": {
+            "outcome": {
+              "enum": [
+                "value",
+                "error"
+              ]
+            },
+            "valueType": {
+              "enum": [
+                "number",
+                "string",
+                "boolean",
+                "unknown"
+              ]
+            },
+            "value": {},
+            "errorCode": {
+              "type": "string"
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "outcome": {
+                    "const": "value"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "value"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "outcome": {
+                    "const": "error"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "errorCode"
+                ]
+              }
+            }
+          ]
+        },
+        "diagnostics": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "code",
+              "severity"
+            ],
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "severity": {
+                "enum": [
+                  "error",
+                  "warning",
+                  "information"
+                ]
+              },
+              "messageContains": {
+                "type": "string"
+              },
+              "range": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "level"
+      ],
+      "properties": {
+        "level": {
+          "enum": [
+            "documented",
+            "verified",
+            "inferred",
+            "hypothesis"
+          ]
+        },
+        "experiments": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "documents": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "builds": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "uniqueItems": true
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "build",
+          "outcome"
+        ],
+        "properties": {
+          "build": {
+            "type": "integer"
+          },
+          "platform": {
+            "type": "string"
+          },
+          "locale": {
+            "type": "string"
+          },
+          "outcome": {
+            "type": "object"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

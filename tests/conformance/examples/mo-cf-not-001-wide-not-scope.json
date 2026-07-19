@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "0.1",
+  "id": "MO-CF-NOT-001",
+  "title": "NOT consumes the following logical expression",
+  "category": "ast",
+  "status": "draft",
+  "tags": [
+    "expressions",
+    "logical",
+    "not",
+    "precedence"
+  ],
+  "source": {
+    "text": "NOT 1 = 1 OR TRUE",
+    "entryPoint": "expression"
+  },
+  "expectation": {
+    "parse": {
+      "accepted": true
+    },
+    "ast": {
+      "comparisonMode": "structural",
+      "inline": {
+        "kind": "UnaryExpression",
+        "operator": "NOT",
+        "operand": {
+          "kind": "BinaryExpression",
+          "operator": "OR",
+          "left": {
+            "kind": "BinaryExpression",
+            "operator": "=",
+            "left": {
+              "kind": "NumberLiteral",
+              "raw": "1"
+            },
+            "right": {
+              "kind": "NumberLiteral",
+              "raw": "1"
+            }
+          },
+          "right": {
+            "kind": "BooleanLiteral",
+            "value": true
+          }
+        }
+      }
+    }
+  },
+  "evidence": {
+    "level": "verified",
+    "experiments": [
+      "MO-081",
+      "MO-082"
+    ],
+    "documents": [
+      "evidence/expressions/not-scope.md"
+    ],
+    "builds": [
+      249
+    ],
+    "notes": "Historical experiment identifiers remain to be imported."
+  }
+}
