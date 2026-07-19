@@ -4,6 +4,13 @@ Dieses Verzeichnis enthält die experimentelle Untersuchung der Skriptsprache vo
 
 Ziel ist eine nachvollziehbare und reproduzierbare Sprachreferenz. Aussagen in der eigentlichen Dokumentation sollen auf dokumentierte Tests zurückgeführt werden können.
 
+## Dokumentation
+
+- [Sprachreferenz](docs/language-reference.md)
+- [Stringfunktionen](docs/functions/string.md)
+- [Bekannte Fehler und gefährliche Randfälle](docs/known-bugs.md)
+- [Forschungsprotokoll](research/README.md)
+
 ## Kennzeichnungen
 
 - 📖 offiziell dokumentiert
