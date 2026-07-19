@@ -12,9 +12,9 @@ def run(script: str, *args: str) -> None:
 def main() -> int:
     run("validate_data.py")
     run("validate_research.py")
+    run("validate_registries.py")
     run("generate_docs.py")
 
-    # Reproducible research artifacts
     for experiment_id in ("MO-027", "MO-028", "MO-029"):
         run("generate_experiment.py", experiment_id)
 
