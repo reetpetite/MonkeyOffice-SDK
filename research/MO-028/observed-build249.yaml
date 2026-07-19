@@ -1,0 +1,24 @@
+experiment: MO-028
+build:
+  application: MonKey Office 2025
+  build: 249
+  platform: macOS
+source: copied_msgbox_output
+raw: MO-028|T01=[ABC]|T02=[ABC]|T03=[]|T04=[]|T05=[A B C]|L01=[ABC  ]|L02=[ABC]|L03=[]|L04=[]|L05=[A
+  B C  ]|R01=[  ABC]|R02=[ABC]|R03=[]|R04=[]|R05=[  A B C]
+results:
+  T01: ABC
+  T02: ABC
+  T03: ''
+  T04: ''
+  T05: A B C
+  L01: 'ABC  '
+  L02: ABC
+  L03: ''
+  L04: ''
+  L05: 'A B C  '
+  R01: '  ABC'
+  R02: ABC
+  R03: ''
+  R04: ''
+  R05: '  A B C'

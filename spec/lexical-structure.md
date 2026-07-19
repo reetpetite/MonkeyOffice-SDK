@@ -1,0 +1,3 @@
+# Lexical Structure
+
+Status: Arbeitsgerüst

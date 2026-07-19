@@ -1,0 +1,39 @@
+id: MO-028
+title: Trim, LTrim und RTrim - Leerzeichen
+status: completed
+functions:
+- Trim
+- LTrim
+- RTrim
+output_format: bracketed
+tests:
+- id: T01
+  expression: Trim("  ABC  ")
+- id: T02
+  expression: Trim("ABC")
+- id: T03
+  expression: Trim("")
+- id: T04
+  expression: Trim("     ")
+- id: T05
+  expression: Trim("  A B C  ")
+- id: L01
+  expression: LTrim("  ABC  ")
+- id: L02
+  expression: LTrim("ABC")
+- id: L03
+  expression: LTrim("")
+- id: L04
+  expression: LTrim("     ")
+- id: L05
+  expression: LTrim("  A B C  ")
+- id: R01
+  expression: RTrim("  ABC  ")
+- id: R02
+  expression: RTrim("ABC")
+- id: R03
+  expression: RTrim("")
+- id: R04
+  expression: RTrim("     ")
+- id: R05
+  expression: RTrim("  A B C  ")

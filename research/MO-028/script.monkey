@@ -1,0 +1,2 @@
+msgBox("MO-028"+"|T01=["+Trim("  ABC  ")+"]"+"|T02=["+Trim("ABC")+"]"+"|T03=["+Trim("")+"]"+"|T04=["+Trim("     ")+"]"+"|T05=["+Trim("  A B C  ")+"]"+"|L01=["+LTrim("  ABC  ")+"]"+"|L02=["+LTrim("ABC")+"]"+"|L03=["+LTrim("")+"]"+"|L04=["+LTrim("     ")+"]"+"|L05=["+LTrim("  A B C  ")+"]"+"|R01=["+RTrim("  ABC  ")+"]"+"|R02=["+RTrim("ABC")+"]"+"|R03=["+RTrim("")+"]"+"|R04=["+RTrim("     ")+"]"+"|R05=["+RTrim("  A B C  ")+"]")
+exit

@@ -1,0 +1,39 @@
+id: MO-029
+title: Position und PatternCount - Trefferverhalten
+status: planned
+functions:
+- Position
+- PatternCount
+output_format: bracketed
+safety:
+  excluded_tests:
+  - PatternCount("ABCDE","")
+  - PatternCount("","")
+  reason: Leerer Suchtext kann die Anwendung im getesteten Build blockieren.
+tests:
+- id: P01
+  expression: Position("ABCABC","ABC",1,1)
+- id: P02
+  expression: Position("ABCABC","ABC",2,1)
+- id: P03
+  expression: Position("ABCABC","ABC",3,1)
+- id: P04
+  expression: Position("AAAA","AA",1,1)
+- id: P05
+  expression: Position("AAAA","AA",2,1)
+- id: P06
+  expression: Position("AAAA","AA",3,1)
+- id: P07
+  expression: Position("ABCDE","",1,1)
+- id: P08
+  expression: Position("ABCDE","XYZ",1,1)
+- id: P09
+  expression: Position("","A",1,1)
+- id: C01
+  expression: PatternCount("AAAA","AA")
+- id: C02
+  expression: PatternCount("AAAAA","AA")
+- id: C03
+  expression: PatternCount("ABCABC","ABC")
+- id: C04
+  expression: PatternCount("","A")

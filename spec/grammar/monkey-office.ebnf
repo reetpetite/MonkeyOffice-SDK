@@ -1,0 +1,9 @@
+expression = logical-expression ;
+
+logical-expression
+    = logical-operand
+    , { ("AND" | "OR"), logical-operand } ;
+
+logical-operand
+    = "NOT", logical-expression
+    | comparison-expression ;

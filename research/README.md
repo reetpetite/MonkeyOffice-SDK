@@ -1,78 +1,38 @@
-# Forschungsprotokoll
+# Forschungslabor
 
-Dieses Verzeichnis enthält die experimentelle Untersuchung der Skriptsprache von MonKey Office.
+Jedes Experiment liegt in einem eigenen Verzeichnis:
 
-Ziel ist eine nachvollziehbare und reproduzierbare Sprachreferenz. Aussagen in der eigentlichen Dokumentation sollen auf dokumentierte Tests zurückgeführt werden können.
+```text
+research/MO-xxx/
+├── experiment.yaml
+├── script.monkey
+├── observed-buildNNN.yaml
+└── report-buildNNN.md
+```
 
-## Dokumentation
+## Ablauf
 
-- [Sprachreferenz](docs/language-reference.md)
-- [Stringfunktionen](docs/functions/string.md)
-- [Bekannte Fehler und gefährliche Randfälle](docs/known-bugs.md)
-- [Forschungsprotokoll](research/README.md)
+1. Experiment in `experiment.yaml` definieren.
+2. Testskript erzeugen:
 
-## Kennzeichnungen
+```bash
+python3 tools/generate_experiment.py MO-029
+```
 
-- 📖 offiziell dokumentiert
-- 🧪 experimentell verifiziert
-- 💡 praktische Empfehlung
-- ⚠️ gefährliches Verhalten oder bekannter Fehler
-- ❓ noch nicht abschließend untersucht
+3. `script.monkey` in MonKey Office ausführen.
+4. Den vollständigen Text aus der `msgBox` kopieren.
+5. Ausgabe importieren:
 
-## Testumgebung
+```bash
+python3 tools/import_results.py --build 249 --text 'MO-029|P01=[...]'
+```
 
-- Anwendung: MonKey Office 2025
-- Build: 249
-- Betriebssystem: macOS
-- Testzeitraum: 2026
-- Region und Zahlenformat: deutschsprachige Umgebung mit Komma als Dezimaltrennzeichen
+6. Bericht erzeugen:
 
-Die genaue Systemregion sollte bei Tests gebietsschemaabhängiger Funktionen zusätzlich festgehalten werden.
+```bash
+python3 tools/generate_research_report.py MO-029 --build 249
+```
 
-## Forschungsindex
+## Wichtige Syntaxgrenze
 
-| ID | Funktion oder Thema | Status | Zentrale Erkenntnis |
-|---|---|---:|---|
-| MO-001 | `Middle()` | 🧪 | Positionen sind 1-basiert; Position 0 verhält sich abweichend |
-| MO-002 | `Replace()` | 🧪 | Ersetzt nur den ersten Treffer |
-| MO-003 | `ReplaceAll()` | 🧪 | Ersetzt alle nicht überlappenden Treffer |
-| MO-004 | `NumToText()` | 🧪 | Funktion existiert unter diesem Namen |
-| MO-005 | `Position()` | 🧪 | Vier Parameter; case-insensitiv; 1-basiert |
-| MO-006 | `PatternCount()` | 🧪 | Zählt überlappende Treffer |
-| MO-007 | `StrComp()` | 🧪 | Case-sensitiver Drei-Wege-Vergleich |
-| MO-008 | `Length()` | 🧪 | Zählt alle Zeichen einschließlich Leerzeichen |
-| MO-009 | `Left()` | 🧪 | Begrenzung über die Textlänge hinaus ist zulässig |
-| MO-010 | `Right()` | 🧪 | Verhalten analog zu `Left()` |
-| MO-011 | `Trim()`, `LTrim()`, `RTrim()` | 🧪 | Entfernen äußere Leerzeichen |
-| MO-012 | `Lower()`, `Upper()` | 🧪 | Verarbeiten deutsche Umlaute |
-| MO-013 | `Proper()` | 🧪 | Wortanfang groß, restliche Buchstaben klein |
-| MO-014 | `CountFields()` | 🧪 | Nicht überlappende, case-insensitive Trennung |
-| MO-015 | `NthField()` | 🧪 | 1-basierte Feldauswahl; leere Felder bleiben erhalten |
-| MO-018 | `Position()` – Randfälle | 🧪 | Überlappende Treffer werden berücksichtigt |
-| MO-022 | `PatternCount()` – leerer Suchtext | ⚠️ | Leerer Suchtext kann MonKey Office aufhängen |
-| MO-023 | `Replace()` – Randfälle | 🧪 | Leerer Suchtext lässt den Ausgangstext unverändert |
-| MO-024 | `ReplaceAll()` – Randfälle | 🧪 | Leerer Suchtext lässt den Ausgangstext unverändert |
-| MO-025 | `TextToNumber()` | 🧪 | Liest den ganzzahligen Anfang eines Textes |
-| MO-026 | `FTextToNumber()` | 🧪 | Gebietsschemaabhängige Zahlenkonvertierung |
-
-## Noch nicht vergebene IDs
-
-Die Lücken in der Nummerierung bleiben zunächst bestehen. Forschungs-IDs werden nicht nachträglich verschoben, da sie als dauerhafte Referenzen dienen sollen.
-
-## Aufbau einer Experimentdatei
-
-Jede Untersuchung sollte nach Möglichkeit folgende Abschnitte enthalten:
-
-1. Fragestellung
-2. Testumgebung
-3. Testcode
-4. Rohresultate
-5. Interpretation
-6. Verifizierte Aussagen
-7. Gefahren und Empfehlungen
-8. Offene Fragen
-9. Status
-
-## Grundsatz
-
-Eine einzelne Beobachtung wird nur dann als allgemeines Sprachverhalten dokumentiert, wenn der Test eindeutig ist. Gebietsschema-, Versions- oder datentypabhängige Ergebnisse werden entsprechend eingeschränkt beschrieben.
+Der komplette `msgBox()`-Ausdruck muss in MonKey Office auf genau einer Scriptzeile stehen. Der Generator berücksichtigt dies automatisch.

@@ -1,0 +1,28 @@
+experiment: MO-027
+build:
+  application: MonKey Office 2025
+  build: 249
+  platform: macOS
+source: copied_msgbox_output
+raw: MO-027|L01=[]|L02=[]|L03=[A]|L04=[AB]|L05=[ABCDE]|L06=[ABCDE]|R01=[]|R02=[]|R03=[E]|R04=[DE]|R05=[ABCDE]|R06=[ABCDE]|M01=[A]|M02=[]|M03=[AB]|M04=[BC]|M05=[]|M06=[]|M07=[]|M08=[BCDE]
+results:
+  L01: ''
+  L02: ''
+  L03: A
+  L04: AB
+  L05: ABCDE
+  L06: ABCDE
+  R01: ''
+  R02: ''
+  R03: E
+  R04: DE
+  R05: ABCDE
+  R06: ABCDE
+  M01: A
+  M02: ''
+  M03: AB
+  M04: BC
+  M05: ''
+  M06: ''
+  M07: ''
+  M08: BCDE

@@ -1,0 +1,2 @@
+msgBox("MO-029"+"|P01=["+Position("ABCABC","ABC",1,1)+"]"+"|P02=["+Position("ABCABC","ABC",2,1)+"]"+"|P03=["+Position("ABCABC","ABC",3,1)+"]"+"|P04=["+Position("AAAA","AA",1,1)+"]"+"|P05=["+Position("AAAA","AA",2,1)+"]"+"|P06=["+Position("AAAA","AA",3,1)+"]"+"|P07=["+Position("ABCDE","",1,1)+"]"+"|P08=["+Position("ABCDE","XYZ",1,1)+"]"+"|P09=["+Position("","A",1,1)+"]"+"|C01=["+PatternCount("AAAA","AA")+"]"+"|C02=["+PatternCount("AAAAA","AA")+"]"+"|C03=["+PatternCount("ABCABC","ABC")+"]"+"|C04=["+PatternCount("","A")+"]")
+exit

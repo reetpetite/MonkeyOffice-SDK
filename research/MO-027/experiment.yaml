@@ -1,0 +1,49 @@
+id: MO-027
+title: Left, Right und Middle - Grenzwerte
+status: completed
+functions:
+- Left
+- Right
+- Middle
+output_format: bracketed
+tests:
+- id: L01
+  expression: Left("ABCDE",0)
+- id: L02
+  expression: Left("ABCDE",-1)
+- id: L03
+  expression: Left("ABCDE",1)
+- id: L04
+  expression: Left("ABCDE",2)
+- id: L05
+  expression: Left("ABCDE",5)
+- id: L06
+  expression: Left("ABCDE",10)
+- id: R01
+  expression: Right("ABCDE",0)
+- id: R02
+  expression: Right("ABCDE",-1)
+- id: R03
+  expression: Right("ABCDE",1)
+- id: R04
+  expression: Right("ABCDE",2)
+- id: R05
+  expression: Right("ABCDE",5)
+- id: R06
+  expression: Right("ABCDE",10)
+- id: M01
+  expression: Middle("ABCDE",0,2)
+- id: M02
+  expression: Middle("ABCDE",-1,2)
+- id: M03
+  expression: Middle("ABCDE",1,2)
+- id: M04
+  expression: Middle("ABCDE",2,2)
+- id: M05
+  expression: Middle("ABCDE",2,0)
+- id: M06
+  expression: Middle("ABCDE",2,-1)
+- id: M07
+  expression: Middle("ABCDE",10,2)
+- id: M08
+  expression: Middle("ABCDE",2,10)
