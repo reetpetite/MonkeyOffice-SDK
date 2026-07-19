@@ -1,9 +1,206 @@
-expression = logical-expression ;
+(* MonKey Office scripting language
+   Working EBNF based on documented and experimentally verified behaviour.
+
+   Status:
+   - Expression grammar: partially verified
+   - Statement grammar: provisional
+   - Lexical grammar: provisional where noted
+*)
+
+program
+    = { statement } ;
+
+statement
+    = variable-declaration
+    | assignment-statement
+    | expression-statement
+    ;
+
+variable-declaration
+    = "dim" , identifier
+    , [ type-annotation ]
+    , [ statement-terminator ]
+    ;
+
+type-annotation
+    = ":" , identifier ;
+
+assignment-statement
+    = "set" , identifier , "=" , expression
+    , [ statement-terminator ]
+    ;
+
+expression-statement
+    = expression
+    , [ statement-terminator ]
+    ;
+
+statement-terminator
+    = line-break
+    | ";" ;
+
+
+(* ------------------------------------------------------------------------- *)
+(* Expressions                                                               *)
+(* ------------------------------------------------------------------------- *)
+
+expression
+    = logical-expression ;
 
 logical-expression
     = logical-operand
-    , { ("AND" | "OR"), logical-operand } ;
+    , { logical-operator , logical-operand } ;
 
 logical-operand
-    = "NOT", logical-expression
+    = not-expression
     | comparison-expression ;
+
+not-expression
+    = "NOT" , logical-expression ;
+
+logical-operator
+    = "AND"
+    | "OR" ;
+
+comparison-expression
+    = additive-expression
+    , [ comparison-operator , additive-expression ] ;
+
+comparison-operator
+    = "="
+    | "<>"
+    | "<"
+    | "<="
+    | ">"
+    | ">=" ;
+
+additive-expression
+    = multiplicative-expression
+    , { additive-operator , multiplicative-expression } ;
+
+additive-operator
+    = "+"
+    | "-" ;
+
+multiplicative-expression
+    = power-expression
+    , { multiplicative-operator , power-expression } ;
+
+multiplicative-operator
+    = "*"
+    | "/" ;
+
+power-expression
+    = primary-expression
+    , { "^" , primary-expression } ;
+
+primary-expression
+    = literal
+    | function-call
+    | identifier-expression
+    | parenthesized-expression
+    ;
+
+parenthesized-expression
+    = "(" , expression , ")" ;
+
+identifier-expression
+    = identifier ;
+
+function-call
+    = identifier
+    , "("
+    , [ argument-list ]
+    , ")" ;
+
+argument-list
+    = expression
+    , { "," , expression } ;
+
+
+(* ------------------------------------------------------------------------- *)
+(* Literals                                                                  *)
+(* ------------------------------------------------------------------------- *)
+
+literal
+    = number-literal
+    | string-literal
+    | boolean-literal
+    ;
+
+boolean-literal
+    = "TRUE"
+    | "FALSE" ;
+
+number-literal
+    = [ sign ]
+    , unsigned-number ;
+
+sign
+    = "+"
+    | "-" ;
+
+unsigned-number
+    = integer-part
+    , [ decimal-separator , fractional-part ]
+    , [ exponent-part ]
+    ;
+
+integer-part
+    = digit , { digit } ;
+
+fractional-part
+    = digit , { digit } ;
+
+decimal-separator
+    = "," ;
+
+exponent-part
+    = ( "e" | "E" )
+    , [ sign ]
+    , digit , { digit } ;
+
+string-literal
+    = '"'
+    , { string-character }
+    , '"' ;
+
+string-character
+    = ? any character permitted by the runtime except an unescaped closing quote ? ;
+
+
+(* ------------------------------------------------------------------------- *)
+(* Lexical elements                                                          *)
+(* ------------------------------------------------------------------------- *)
+
+identifier
+    = identifier-start
+    , { identifier-continue } ;
+
+identifier-start
+    = letter
+    | "_" ;
+
+identifier-continue
+    = letter
+    | digit
+    | "_" ;
+
+letter
+    = "A" | "B" | "C" | "D" | "E" | "F" | "G"
+    | "H" | "I" | "J" | "K" | "L" | "M" | "N"
+    | "O" | "P" | "Q" | "R" | "S" | "T" | "U"
+    | "V" | "W" | "X" | "Y" | "Z"
+    | "a" | "b" | "c" | "d" | "e" | "f" | "g"
+    | "h" | "i" | "j" | "k" | "l" | "m" | "n"
+    | "o" | "p" | "q" | "r" | "s" | "t" | "u"
+    | "v" | "w" | "x" | "y" | "z" ;
+
+digit
+    = "0" | "1" | "2" | "3" | "4"
+    | "5" | "6" | "7" | "8" | "9" ;
+
+line-break
+    = "\n"
+    | "\r\n"
+    | "\r" ;
