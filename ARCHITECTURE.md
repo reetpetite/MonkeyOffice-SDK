@@ -50,9 +50,15 @@ models instead of duplicating language rules.
 
 ### 2.5 Explicit uncertainty
 
-Unknown or weakly supported behaviour must remain explicitly marked as
-`inferred` or `hypothesis`. Missing knowledge must not be silently converted
-into specification text.
+Every language claim uses one of the evidence classes defined in
+[`model/evidence-classification.md`](model/evidence-classification.md):
+`documented`, `verified`, `inferred`, or `hypothesis`. Missing knowledge must
+not be silently converted into specification text.
+
+Only `documented` and `verified` claims may directly support normative language
+rules. An `inferred` claim may inform provisional explanatory text, but remains
+explicitly marked until documentation or a reproducing experiment promotes it.
+A `hypothesis` is a research prompt and is never normative.
 
 ### 2.6 Specification before implementation
 

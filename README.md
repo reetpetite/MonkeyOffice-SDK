@@ -61,6 +61,8 @@ research and official documentation
 
 See [`ARCHITECTURE.md`](ARCHITECTURE.md) for the repository boundaries and
 [`docs/design-decisions/`](docs/design-decisions/) for recorded design decisions.
+The project-wide evidence classes are defined in
+[`model/evidence-classification.md`](model/evidence-classification.md).
 
 ---
 

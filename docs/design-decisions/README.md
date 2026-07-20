@@ -16,3 +16,4 @@ repository and links to its replacement.
 ## Records
 
 - [DDD-0001: Repository architecture and dependency direction](DDD-0001-repository-architecture.md)
+- [DDD-0002: Evidence classification](DDD-0002-evidence-classification.md)
