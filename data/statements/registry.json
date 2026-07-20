@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "1.0",
+  "statements": [
+    {
+      "id": "statement-dim",
+      "symbolId": "kw-dim",
+      "astKind": "dim_statement",
+      "form": "keyword-identifier",
+      "status": "inferred",
+      "evidence": [
+        "model/program-ast.md"
+      ],
+      "notes": [
+        "Initial executable form: DIM followed by exactly one identifier.",
+        "The form must be verified against MonKey Office."
+      ]
+    },
+    {
+      "id": "statement-set",
+      "symbolId": "kw-set",
+      "astKind": "set_statement",
+      "form": "keyword-identifier",
+      "status": "inferred",
+      "evidence": [
+        "model/program-ast.md"
+      ],
+      "notes": [
+        "Initial executable form: SET followed by exactly one identifier.",
+        "The form must be verified against MonKey Office."
+      ]
+    }
+  ]
+}
