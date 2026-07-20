@@ -1,0 +1,21 @@
+id: EVD-0001
+classification: verified
+statement: Trim removes leading and trailing ASCII spaces while preserving internal spaces.
+origin:
+  experiment: MO-028
+  build: 249
+  cases:
+    - T01
+    - T02
+    - T03
+    - T04
+    - T05
+source_files:
+  - research/MO-028/experiment.yaml
+  - research/MO-028/observed-build249.yaml
+scope:
+  application: MonKey Office 2025
+  platform: macOS
+limitations:
+  - Only ASCII space characters were tested.
+  - Other whitespace characters remain unverified.

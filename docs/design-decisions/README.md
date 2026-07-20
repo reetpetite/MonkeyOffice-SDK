@@ -20,3 +20,4 @@ repository and links to its replacement.
 - [DDD-0003: Reproducible interpreter experiments](DDD-0003-experiment-protocol.md)
 
 - [DDD-0004 – Isolierte Script-Matrizen für Syntaxexperimente](DDD-0004-script-matrix-experiments.md)
+- [DDD-0005 – Machine-readable evidence graph](DDD-0005-evidence-graph.md)

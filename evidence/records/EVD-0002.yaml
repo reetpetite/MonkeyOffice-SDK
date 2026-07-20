@@ -1,0 +1,17 @@
+id: EVD-0002
+classification: verified
+statement: Left returns an empty string for a zero or negative character count in build 249.
+origin:
+  experiment: MO-027
+  build: 249
+  cases:
+    - L01
+    - L02
+source_files:
+  - research/MO-027/experiment.yaml
+  - research/MO-027/observed-build249.yaml
+scope:
+  application: MonKey Office 2025
+  platform: macOS
+limitations:
+  - Behaviour is verified only for the tested string and build.

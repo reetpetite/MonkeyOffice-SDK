@@ -12,6 +12,7 @@ def run(script: str, *args: str) -> None:
 def main() -> int:
     run("validate_data.py")
     run("validate_research.py")
+    run("validate_evidence_graph.py")
     run("validate_registries.py")
     run("generate_docs.py")
 

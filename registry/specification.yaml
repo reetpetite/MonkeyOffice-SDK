@@ -1,0 +1,10 @@
+schema_version: 1
+rules:
+  - id: SPEC-STR-001
+    path: spec/rules/SPEC-STR-001.md
+    supported_by:
+      - EVD-0001
+  - id: SPEC-STR-002
+    path: spec/rules/SPEC-STR-002.md
+    supported_by:
+      - EVD-0002

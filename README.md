@@ -86,6 +86,7 @@ Future Parser / Tooling
 
 Experiments never become part of the specification directly.
 Every normative statement should be supported by documented evidence.
+Machine-readable relationships between experiments, evidence records, and specification rules are maintained in [`registry/`](registry/README.md) and checked during every build.
 
 Interpreter experiments follow [`research/experiment-protocol.md`](research/experiment-protocol.md). Unresolved questions are tracked in [`research/open-questions.md`](research/open-questions.md).
 

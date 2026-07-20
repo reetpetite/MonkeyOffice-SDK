@@ -1,0 +1,16 @@
+schema_version: 1
+experiments:
+  - id: MO-027
+    path: research/MO-027/experiment.yaml
+  - id: MO-028
+    path: research/MO-028/experiment.yaml
+  - id: MO-029
+    path: research/MO-029/experiment.yaml
+  - id: MO-030
+    path: research/MO-030/experiment.yaml
+  - id: MO-031
+    path: research/MO-031/experiment.yaml
+  - id: MO-032
+    path: research/MO-032/experiment.yaml
+  - id: MO-033
+    path: research/MO-033/experiment.yaml

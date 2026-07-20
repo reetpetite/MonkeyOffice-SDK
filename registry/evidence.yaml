@@ -1,0 +1,6 @@
+schema_version: 1
+evidence:
+  - id: EVD-0001
+    path: evidence/records/EVD-0001.yaml
+  - id: EVD-0002
+    path: evidence/records/EVD-0002.yaml
