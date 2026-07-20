@@ -1,0 +1,56 @@
+schema_version: 1
+default_build: 249
+experiments:
+  - id: MO-030
+    directory: research/MO-030
+    result_pattern: research/MO-030/results/build{build}/observed.yaml
+    report_pattern: research/MO-030/results/build{build}/report.md
+    cases:
+      - id: D01
+        script: cases/D01-basic-number.monkey
+      - id: D02
+        script: cases/D02-two-statements.monkey
+      - id: D03
+        script: cases/D03-comma-shared-type.monkey
+      - id: D04
+        script: cases/D04-comma-repeated-type.monkey
+
+  - id: MO-031
+    directory: research/MO-031
+    result_pattern: research/MO-031/results/build{build}/observed.yaml
+    report_pattern: research/MO-031/results/build{build}/report.md
+    cases:
+      - id: C01
+        script: cases/C01-uppercase-keywords.monkey
+      - id: C02
+        script: cases/C02-lowercase.monkey
+      - id: C03
+        script: cases/C03-title-case.monkey
+      - id: C04
+        script: cases/C04-mixed-case.monkey
+
+  - id: MO-032
+    directory: research/MO-032
+    result_pattern: research/MO-032/results/build{build}/observed.yaml
+    report_pattern: research/MO-032/results/build{build}/report.md
+    cases:
+      - id: I01
+        script: cases/I01-dim-initializer.monkey
+      - id: I02
+        script: cases/I02-inferred-type.monkey
+      - id: I03
+        script: cases/I03-dim-then-set.monkey
+
+  - id: MO-033
+    directory: research/MO-033
+    result_pattern: research/MO-033/results/build{build}/observed.yaml
+    report_pattern: research/MO-033/results/build{build}/report.md
+    cases:
+      - id: W01
+        script: cases/W01-single-spaces.monkey
+      - id: W02
+        script: cases/W02-many-spaces.monkey
+      - id: W03
+        script: cases/W03-tabs.monkey
+      - id: W04
+        script: cases/W04-line-break-after-dim.monkey

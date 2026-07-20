@@ -33,6 +33,7 @@ model/          Language models (AST, evidence model, ...)
 research/       Individual experiments
 spec/           Formal language specification
 tests/          Conformance tests
+runner/         Human-operated interpreter execution harness
 tools/          Build and research tooling
 ```
 
@@ -45,6 +46,7 @@ implementation concerns:
 | `evidence/` | Consolidated conclusions derived from documentation and experiments |
 | `spec/` | Normative, implementation-independent language specification |
 | `model/` and `data/` | Shared formal and machine-readable representations |
+| `runner/` | Build-specific execution manifests, observation templates, and reports |
 | `tools/` | Reference implementations and deterministic project tooling |
 
 The authoritative dependency direction is:
@@ -88,7 +90,7 @@ Experiments never become part of the specification directly.
 Every normative statement should be supported by documented evidence.
 Machine-readable relationships between experiments, evidence records, and specification rules are maintained in [`registry/`](registry/README.md) and checked during every build.
 
-Interpreter experiments follow [`research/experiment-protocol.md`](research/experiment-protocol.md). Unresolved questions are tracked in [`research/open-questions.md`](research/open-questions.md).
+Interpreter experiments follow [`research/experiment-protocol.md`](research/experiment-protocol.md). Unresolved questions are tracked in [`research/open-questions.md`](research/open-questions.md). The declaration probe matrices are executed and recorded through the human-operated [`runner/`](runner/README.md) harness.
 
 ---
 
@@ -158,3 +160,8 @@ See the repository license.
 ### Erste Interpreter-Testmatrix
 
 Die Experimente `MO-030` bis `MO-033` untersuchen isoliert grundlegende `DIM`-Formen, Groß-/Kleinschreibung, Initialisierung mit `SET` sowie Leerraum. Jeder potenziell fehlschlagende Syntaxfall besitzt ein eigenes ausführbares MonKey-Office-Skript.
+
+
+### Build-specific declaration test execution
+
+Sprint 29 adds a human-operated execution harness for `MO-030` through `MO-033`. It initializes explicit `not-run` observations, records one manually observed case at a time, generates deterministic reports, and validates partial as well as complete build-specific result sets.

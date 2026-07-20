@@ -1,0 +1,16 @@
+schema_version: 1
+experiment: MO-NNN
+build: 249
+recorded_at: null
+environment:
+  product_version: null
+  operating_system: null
+  locale: null
+  notes: null
+complete: false
+cases:
+  CASE:
+    status: not-run
+    success_signal: null
+    message: null
+    notes: null

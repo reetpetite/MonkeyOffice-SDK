@@ -21,3 +21,4 @@ repository and links to its replacement.
 
 - [DDD-0004 – Isolierte Script-Matrizen für Syntaxexperimente](DDD-0004-script-matrix-experiments.md)
 - [DDD-0005 – Machine-readable evidence graph](DDD-0005-evidence-graph.md)
+- [DDD-0006 – Human-operated interpreter execution harness](DDD-0006-human-operated-execution-harness.md)
