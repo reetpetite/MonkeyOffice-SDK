@@ -13,7 +13,7 @@ The repository is designed to keep four kinds of information separate:
 1. raw experiments,
 2. consolidated evidence,
 3. normative language descriptions,
-4. machine-readable models and generated documentation.
+4. machine-readable models, reference implementations, and generated documentation.
 
 This separation is essential because observed runtime behaviour is not
 automatically a language rule. A result first has to be reproduced, evaluated,
@@ -53,6 +53,20 @@ models instead of duplicating language rules.
 Unknown or weakly supported behaviour must remain explicitly marked as
 `inferred` or `hypothesis`. Missing knowledge must not be silently converted
 into specification text.
+
+### 2.6 Specification before implementation
+
+Reference tools implement the specification; they do not define it. A parser,
+tokenizer, validator, or test may expose a disagreement, but its current
+behaviour is never sufficient evidence for a language rule. The disagreement
+must be resolved in `research/`, `evidence/`, `spec/`, or `model/` before the
+implementation becomes authoritative.
+
+### 2.7 Recorded design decisions
+
+Repository-wide architectural decisions are recorded under
+`docs/design-decisions/`. These records explain context, decision, and
+consequences without replacing normative language specification.
 
 ---
 
@@ -226,7 +240,9 @@ Contains deterministic project tooling such as:
 ```
 
 The dependency direction is one-way. Later layers may cite earlier layers, but
-research conclusions must not be rewritten merely to fit an implementation.
+research conclusions and specification rules must not be rewritten merely to
+fit an implementation. A failing reference tool is evidence of a repository
+disagreement, not evidence that the language behaves as the tool does.
 
 ---
 

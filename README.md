@@ -36,13 +36,31 @@ tests/          Conformance tests
 tools/          Build and research tooling
 ```
 
-The repository intentionally separates three different concerns:
+The repository intentionally separates research, evidence, specification, and
+implementation concerns:
 
 | Directory | Purpose |
 |-----------|---------|
 | `research/` | Experimental work and raw observations |
-| `evidence/` | Consolidated conclusions derived from experiments |
-| `spec/` | Normative language specification |
+| `evidence/` | Consolidated conclusions derived from documentation and experiments |
+| `spec/` | Normative, implementation-independent language specification |
+| `model/` and `data/` | Shared formal and machine-readable representations |
+| `tools/` | Reference implementations and deterministic project tooling |
+
+The authoritative dependency direction is:
+
+```text
+research and official documentation
+                ↓
+             evidence
+                ↓
+       specification and models
+                ↓
+ reference implementation and tests
+```
+
+See [`ARCHITECTURE.md`](ARCHITECTURE.md) for the repository boundaries and
+[`docs/design-decisions/`](docs/design-decisions/) for recorded design decisions.
 
 ---
 
@@ -65,9 +83,22 @@ Future Parser / Tooling
 ```
 
 Experiments never become part of the specification directly.
-Every normative statement should be supported by a traceable evidence record.
-The canonical evidence levels are `documented`, `verified`, `inferred`, and
-`hypothesis`; see `model/evidence-classification.md`.
+Every normative statement should be supported by documented evidence.
+
+---
+
+## Repository Principles
+
+1. **Evidence precedes specification.** Language claims originate in official
+   documentation or reproducible observations.
+2. **The specification is implementation-independent.** Parser behaviour does
+   not become normative merely because the reference parser implements it.
+3. **Uncertainty stays explicit.** Unsupported behaviour remains an open
+   question, inference, or hypothesis rather than silently entering code.
+4. **Generated artifacts are not sources of truth.** They must be reproducible
+   from versioned source data.
+5. **Changes remain traceable.** Grammar, models, registries, tests, and tools
+   should identify the evidence or specification rule they implement.
 
 ---
 
