@@ -65,7 +65,9 @@ Future Parser / Tooling
 ```
 
 Experiments never become part of the specification directly.
-Every normative statement should be supported by documented evidence.
+Every normative statement should be supported by a traceable evidence record.
+The canonical evidence levels are `documented`, `verified`, `inferred`, and
+`hypothesis`; see `model/evidence-classification.md`.
 
 ---
 

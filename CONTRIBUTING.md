@@ -19,7 +19,23 @@
 6. Änderungen mit `git diff` kontrollieren.
 7. Commit mit beschreibender Nachricht erstellen.
 
-## Statuswerte
+## Evidenzstufen
+
+Sprachbehauptungen verwenden ausschließlich die kanonischen Evidenzstufen:
+
+- `documented` — durch eine identifizierte Primärquelle dokumentiert
+- `verified` — durch ein reproduzierbares Experiment bestätigt
+- `inferred` — aus vorhandener Evidenz abgeleitet, aber nicht direkt belegt
+- `hypothesis` — prüfbare, bislang unzureichend belegte Annahme
+
+Dokumentations- und Experimentbelege sind unterschiedliche Quelltypen.
+Lifecycle-Werte wie `planned`, `active` oder `implementation` sind keine
+Evidenzstufen und müssen in getrennten Feldern geführt werden.
+
+Jeder Registry-Eintrag mit Evidenzstatus benötigt mindestens einen existierenden
+repository-relativen Pfad im Feld `evidence`.
+
+## Forschungsstatuswerte
 
 - `planned`
 - `testing`

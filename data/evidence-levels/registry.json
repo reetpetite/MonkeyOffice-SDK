@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "1.0",
+  "levels": [
+    {
+      "id": "documented",
+      "rank": 0,
+      "description": "Explicitly stated in vendor documentation or another identified primary source.",
+      "requirements": [
+        "Reference a consolidated evidence document that identifies the source.",
+        "Do not treat documentation alone as runtime verification."
+      ]
+    },
+    {
+      "id": "verified",
+      "rank": 1,
+      "description": "Confirmed by a reproducible experiment against the target MonKey Office build.",
+      "requirements": [
+        "Reference evidence derived from at least one recorded experiment.",
+        "Preserve the tested build and exact observation in research/."
+      ]
+    },
+    {
+      "id": "inferred",
+      "rank": 2,
+      "description": "Supported by available evidence but not stated directly and not yet confirmed by a decisive experiment.",
+      "requirements": [
+        "State the inference explicitly.",
+        "Keep the claim out of normative specification text unless clearly marked."
+      ]
+    },
+    {
+      "id": "hypothesis",
+      "rank": 3,
+      "description": "A testable proposal that currently lacks sufficient supporting evidence.",
+      "requirements": [
+        "Do not present the claim as language behaviour.",
+        "Prefer a minimal experiment that can confirm or reject it."
+      ]
+    }
+  ]
+}
