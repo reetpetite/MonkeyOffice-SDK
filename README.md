@@ -87,6 +87,8 @@ Future Parser / Tooling
 Experiments never become part of the specification directly.
 Every normative statement should be supported by documented evidence.
 
+Interpreter experiments follow [`research/experiment-protocol.md`](research/experiment-protocol.md). Unresolved questions are tracked in [`research/open-questions.md`](research/open-questions.md).
+
 ---
 
 ## Repository Principles

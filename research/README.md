@@ -6,6 +6,7 @@ Jedes Experiment liegt in einem eigenen Verzeichnis:
 research/MO-xxx/
 ├── experiment.yaml
 ├── script.monkey
+├── expected.md
 ├── observed-buildNNN.yaml
 └── report-buildNNN.md
 ```
@@ -36,3 +37,11 @@ python3 tools/generate_research_report.py MO-029 --build 249
 ## Wichtige Syntaxgrenze
 
 Der komplette `msgBox()`-Ausdruck muss in MonKey Office auf genau einer Scriptzeile stehen. Der Generator berücksichtigt dies automatisch.
+
+## Verbindliche Forschungsregeln
+
+- [`experiment-protocol.md`](experiment-protocol.md) definiert Planung, Durchführung und Auswertung.
+- [`open-questions.md`](open-questions.md) führt ungeklärte Sprachfragen mit dauerhaften IDs.
+- [`expected-template.md`](expected-template.md) dient zur Vorab-Dokumentation der Erwartung.
+
+Eine Beobachtung aus MonKey Office wird erst nach Konsolidierung in `evidence/` zu einer Grundlage für die normative Spezifikation.

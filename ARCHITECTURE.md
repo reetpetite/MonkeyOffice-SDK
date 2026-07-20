@@ -358,6 +358,18 @@ Generated files should be reproducible from versioned inputs.
 
 ---
 
+
+## 8.1 Interpreter experiment boundary
+
+Tests executed in MonKey Office belong to the research layer. They must preserve
+the exact script, pre-execution expectation, build-specific observation, and
+relevant environment details. The canonical procedure is defined in
+[`research/experiment-protocol.md`](research/experiment-protocol.md).
+
+An interpreter experiment can support `verified` evidence, but it does not edit
+the specification directly. Open scope, unsafe cases, and unresolved alternatives
+remain visible in [`research/open-questions.md`](research/open-questions.md).
+
 ## 9. Planned Tooling Layers
 
 ```text
