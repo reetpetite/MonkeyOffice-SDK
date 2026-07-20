@@ -3,7 +3,7 @@
 
    Status:
    - Expression grammar: partially verified
-   - Statement grammar: provisional
+   - Statement grammar: documented for DIM and SET; otherwise provisional
    - Lexical grammar: provisional where noted
 *)
 
@@ -17,16 +17,16 @@ statement
     ;
 
 variable-declaration
-    = "dim" , identifier
-    , [ type-annotation ]
+    = "dim" , identifier , "as" , type-name
+    , [ "=" , expression ]
     , [ statement-terminator ]
     ;
 
-type-annotation
-    = ":" , identifier ;
+type-name
+    = identifier ;
 
 assignment-statement
-    = "set" , identifier , "=" , expression
+    = "set" , identifier , "to" , expression
     , [ statement-terminator ]
     ;
 

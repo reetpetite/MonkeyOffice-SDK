@@ -17,9 +17,9 @@ spec.loader.exec_module(module)
 
 class ReferenceLexerTests(unittest.TestCase):
     def test_verified_keywords_are_case_insensitive(self) -> None:
-        tokens = module.tokenize("dim Amount\nSeT Result")
+        tokens = module.tokenize("dim Amount as number\nSeT Result to 10")
         symbols = [t.symbol_id for t in tokens if t.kind == "symbol"]
-        self.assertEqual(symbols, ["kw-dim", "kw-set"])
+        self.assertEqual(symbols, ["kw-dim", "kw-as", "kw-set", "kw-to"])
 
     def test_verified_word_operators_are_registry_driven(self) -> None:
         tokens = module.tokenize("a AND b or NOT c")
@@ -39,6 +39,10 @@ class ReferenceLexerTests(unittest.TestCase):
             [token.kind for token in tokens],
             ["lparen", "identifier", "rparen", "eof"],
         )
+
+    def test_initializer_equals_is_structural_token(self) -> None:
+        tokens = module.tokenize("DIM amount AS number = 5")
+        self.assertIn("equals", [token.kind for token in tokens])
 
     def test_numbers_and_identifiers_are_distinct(self) -> None:
         tokens = module.tokenize("value 12 3.5 .25 1e3")

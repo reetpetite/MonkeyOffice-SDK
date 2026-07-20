@@ -5,28 +5,26 @@
       "id": "statement-dim",
       "symbolId": "kw-dim",
       "astKind": "dim_statement",
-      "form": "keyword-identifier",
-      "status": "inferred",
+      "form": "dim-declaration",
+      "status": "documented",
       "evidence": [
-        "model/program-ast.md"
+        "evidence/statements/dim-set.md"
       ],
       "notes": [
-        "Initial executable form: DIM followed by exactly one identifier.",
-        "The form must be verified against MonKey Office."
+        "Documented form: DIM name AS type [= expression]."
       ]
     },
     {
       "id": "statement-set",
       "symbolId": "kw-set",
       "astKind": "set_statement",
-      "form": "keyword-identifier",
-      "status": "inferred",
+      "form": "set-assignment",
+      "status": "documented",
       "evidence": [
-        "model/program-ast.md"
+        "evidence/statements/dim-set.md"
       ],
       "notes": [
-        "Initial executable form: SET followed by exactly one identifier.",
-        "The form must be verified against MonKey Office."
+        "Documented form: SET name TO expression."
       ]
     }
   ]

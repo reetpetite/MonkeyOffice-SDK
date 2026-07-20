@@ -23,8 +23,10 @@ Word-like entries are matched case-insensitively when the registry declares
 
 Currently recognized verified symbols:
 
+- `AS`
 - `DIM`
 - `SET`
+- `TO`
 - `AND`
 - `OR`
 - `NOT`
@@ -69,7 +71,7 @@ implements them.
 ## Usage
 
 ```bash
-printf 'dim amount\nset result' | python tools/monkey_tokenize.py
+printf 'dim amount as number\nset amount to 10' | python tools/monkey_tokenize.py
 python tools/monkey_tokenize.py path/to/script.monkey
 python tools/monkey_tokenize.py --json path/to/script.monkey
 ```

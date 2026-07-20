@@ -5,6 +5,11 @@
 This document records which parts of the grammar are considered verified,
 inferred, or provisional.
 
+## Documented
+
+- Variable declarations use `DIM name AS type [= expression]`.
+- Assignments use `SET name TO expression`.
+
 ## Verified
 
 - `^` binds more strongly than `*` and `/`.
@@ -26,9 +31,8 @@ inferred, or provisional.
 
 ## Provisional
 
-- Complete statement syntax.
+- Statement syntax beyond `DIM` and `SET`.
 - Exact statement terminators.
-- Type-annotation syntax.
 - Identifier character set.
 - String escaping.
 - Exponent notation.
@@ -63,7 +67,6 @@ NOT 1 = 1 OR TRUE
 
 1. Unary minus versus power expressions.
 2. Chained comparisons.
-3. Exact declaration syntax.
-4. Exact statement separators.
-5. String delimiters and escapes.
-6. Identifier case rules and valid characters.
+3. Exact statement separators.
+4. String delimiters and escapes.
+5. Identifier case rules and valid characters.

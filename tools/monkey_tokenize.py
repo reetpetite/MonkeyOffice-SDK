@@ -21,6 +21,7 @@ NUMBER_RE = re.compile(
 STRUCTURAL_PUNCTUATION = {
     "(": "lparen",
     ")": "rparen",
+    "=": "equals",
 }
 
 

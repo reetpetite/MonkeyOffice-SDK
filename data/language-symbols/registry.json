@@ -2,15 +2,28 @@
   "schemaVersion": "1.0",
   "symbols": [
     {
+      "id": "kw-as",
+      "kind": "keyword",
+      "spelling": "as",
+      "canonicalSpelling": "AS",
+      "caseInsensitive": true,
+      "status": "documented",
+      "evidence": [
+        "evidence/statements/dim-set.md"
+      ],
+      "description": "Introduces the declared type in a variable declaration.",
+      "role": "declaration-type-separator",
+      "evaluation": "not-applicable"
+    },
+    {
       "id": "kw-dim",
       "kind": "keyword",
       "spelling": "dim",
       "canonicalSpelling": "DIM",
       "caseInsensitive": true,
-      "status": "verified",
+      "status": "documented",
       "evidence": [
-        "spec/grammar.md",
-        "model/semantic-analysis.md"
+        "evidence/statements/dim-set.md"
       ],
       "description": "Introduces a variable declaration.",
       "role": "declaration",
@@ -22,13 +35,26 @@
       "spelling": "set",
       "canonicalSpelling": "SET",
       "caseInsensitive": true,
-      "status": "verified",
+      "status": "documented",
       "evidence": [
-        "spec/grammar.md",
-        "model/semantic-analysis.md"
+        "evidence/statements/dim-set.md"
       ],
       "description": "Introduces an assignment.",
       "role": "assignment",
+      "evaluation": "not-applicable"
+    },
+    {
+      "id": "kw-to",
+      "kind": "keyword",
+      "spelling": "to",
+      "canonicalSpelling": "TO",
+      "caseInsensitive": true,
+      "status": "documented",
+      "evidence": [
+        "evidence/statements/dim-set.md"
+      ],
+      "description": "Separates an assignment target from its value expression.",
+      "role": "assignment-value-separator",
       "evaluation": "not-applicable"
     },
     {

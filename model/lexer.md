@@ -43,8 +43,10 @@ Parser
 
 Initially verified keywords include:
 
+- AS
 - DIM
 - SET
+- TO
 - IF
 - THEN
 - ELSE

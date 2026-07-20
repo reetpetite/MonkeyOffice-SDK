@@ -48,7 +48,8 @@
         },
         "form": {
           "enum": [
-            "keyword-identifier"
+            "dim-declaration",
+            "set-assignment"
           ]
         },
         "status": {

@@ -248,36 +248,6 @@
         }
       ]
     },
-    "named_statement": {
-      "type": "object",
-      "required": [
-        "kind",
-        "start",
-        "end",
-        "name"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "kind": {
-          "enum": [
-            "dim_statement",
-            "set_statement"
-          ]
-        },
-        "start": {
-          "type": "integer",
-          "minimum": 0
-        },
-        "end": {
-          "type": "integer",
-          "minimum": 0
-        },
-        "name": {
-          "type": "string",
-          "minLength": 1
-        }
-      }
-    },
     "expression_statement": {
       "type": "object",
       "required": [
@@ -307,7 +277,10 @@
     "statement": {
       "oneOf": [
         {
-          "$ref": "#/$defs/named_statement"
+          "$ref": "#/$defs/dim_statement"
+        },
+        {
+          "$ref": "#/$defs/set_statement"
         },
         {
           "$ref": "#/$defs/expression_statement"
@@ -340,6 +313,72 @@
           "items": {
             "$ref": "#/$defs/statement"
           }
+        }
+      }
+    },
+    "dim_statement": {
+      "type": "object",
+      "required": [
+        "kind",
+        "start",
+        "end",
+        "name",
+        "typeName"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "dim_statement"
+        },
+        "start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "typeName": {
+          "type": "string",
+          "minLength": 1
+        },
+        "initializer": {
+          "$ref": "#/$defs/expression"
+        }
+      }
+    },
+    "set_statement": {
+      "type": "object",
+      "required": [
+        "kind",
+        "start",
+        "end",
+        "name",
+        "value"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "set_statement"
+        },
+        "start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "value": {
+          "$ref": "#/$defs/expression"
         }
       }
     }

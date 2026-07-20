@@ -67,7 +67,7 @@ python tools/parse_expression.py 'NOT a AND b ^ c'   | python tools/validate_ast
 Program:
 
 ```bash
-printf 'DIM amount\nSET result\nNOT amount AND result\n'   | python tools/parse_program.py   | python tools/validate_ast.py
+printf 'DIM amount AS number = 5\nSET amount TO 10\nNOT amount AND result\n'   | python tools/parse_program.py   | python tools/validate_ast.py
 ```
 
 ## Current boundary

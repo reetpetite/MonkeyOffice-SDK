@@ -18,7 +18,7 @@ Validate parser output with:
 ```bash
 python tools/parse_expression.py 'NOT a AND b'   | python tools/validate_ast.py
 
-printf 'DIM amount\nSET result\namount AND result\n'   | python tools/parse_program.py   | python tools/validate_ast.py
+printf 'DIM amount AS number = 5\nSET amount TO 10\namount AND result\n'   | python tools/parse_program.py   | python tools/validate_ast.py
 ```
 
 The schema describes the executable reference model. It is not yet a complete

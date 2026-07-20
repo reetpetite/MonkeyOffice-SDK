@@ -20,7 +20,7 @@ class AstSchemaTests(unittest.TestCase):
 
     def test_program_parser_output_is_valid(self) -> None:
         document = program_to_dict(
-            parse_program("DIM amount\nSET result\nNOT amount AND result\n")
+            parse_program("DIM amount AS number = 5\nSET amount TO 10\nNOT amount AND result\n")
         )
         self.assertEqual(validate(document), [])
 
