@@ -1,0 +1,347 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://reetpetite.github.io/MonkeyOffice-SDK/data/ast/schema.json",
+  "title": "MonKey Office reference AST",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/program"
+    },
+    {
+      "$ref": "#/$defs/expression"
+    }
+  ],
+  "$defs": {
+    "span": {
+      "type": "object",
+      "required": [
+        "kind",
+        "start",
+        "end"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "identifier": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/span"
+        },
+        {
+          "type": "object",
+          "required": [
+            "kind",
+            "start",
+            "end",
+            "value"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "identifier"
+            },
+            "start": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "end": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "value": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      ]
+    },
+    "number": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/span"
+        },
+        {
+          "type": "object",
+          "required": [
+            "kind",
+            "start",
+            "end",
+            "value"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "number"
+            },
+            "start": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "end": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "value": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      ]
+    },
+    "string": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/span"
+        },
+        {
+          "type": "object",
+          "required": [
+            "kind",
+            "start",
+            "end",
+            "value"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "string"
+            },
+            "start": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "end": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "value": {
+              "type": "string",
+              "minLength": 2
+            }
+          }
+        }
+      ]
+    },
+    "group": {
+      "type": "object",
+      "required": [
+        "kind",
+        "start",
+        "end",
+        "operand"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "group"
+        },
+        "start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "operand": {
+          "$ref": "#/$defs/expression"
+        }
+      }
+    },
+    "unary": {
+      "type": "object",
+      "required": [
+        "kind",
+        "start",
+        "end",
+        "operator",
+        "operand"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "unary"
+        },
+        "start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "operator": {
+          "type": "string",
+          "pattern": "^op-[a-z][a-z0-9-]*$"
+        },
+        "operand": {
+          "$ref": "#/$defs/expression"
+        }
+      }
+    },
+    "binary": {
+      "type": "object",
+      "required": [
+        "kind",
+        "start",
+        "end",
+        "operator",
+        "left",
+        "right"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "binary"
+        },
+        "start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "operator": {
+          "type": "string",
+          "pattern": "^op-[a-z][a-z0-9-]*$"
+        },
+        "left": {
+          "$ref": "#/$defs/expression"
+        },
+        "right": {
+          "$ref": "#/$defs/expression"
+        }
+      }
+    },
+    "expression": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/identifier"
+        },
+        {
+          "$ref": "#/$defs/number"
+        },
+        {
+          "$ref": "#/$defs/string"
+        },
+        {
+          "$ref": "#/$defs/group"
+        },
+        {
+          "$ref": "#/$defs/unary"
+        },
+        {
+          "$ref": "#/$defs/binary"
+        }
+      ]
+    },
+    "named_statement": {
+      "type": "object",
+      "required": [
+        "kind",
+        "start",
+        "end",
+        "name"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "dim_statement",
+            "set_statement"
+          ]
+        },
+        "start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "expression_statement": {
+      "type": "object",
+      "required": [
+        "kind",
+        "start",
+        "end",
+        "expression"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "expression_statement"
+        },
+        "start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "expression": {
+          "$ref": "#/$defs/expression"
+        }
+      }
+    },
+    "statement": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/named_statement"
+        },
+        {
+          "$ref": "#/$defs/expression_statement"
+        }
+      ]
+    },
+    "program": {
+      "type": "object",
+      "required": [
+        "kind",
+        "start",
+        "end",
+        "body"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "program"
+        },
+        "start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "body": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/statement"
+          }
+        }
+      }
+    }
+  }
+}
