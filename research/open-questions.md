@@ -126,3 +126,21 @@ store them with dynamic typing?
 
 Test a small cross-type matrix while separating parse acceptance, execution,
 resulting value, and exact error behaviour.
+
+## Q-004 – Sind Schlüsselwörter und Typnamen case-sensitive?
+
+- Status: Experiment vorbereitet
+- Experiment: `MO-031`
+- Ziel: Trennung der Groß-/Kleinschreibung von Bezeichnerfragen
+
+## Q-005 – Welche Initialisierungsformen unterstützt DIM?
+
+- Status: Experiment vorbereitet
+- Experiment: `MO-032`
+- Abgrenzung: Typkompatibilität bleibt Gegenstand von `Q-003`
+
+## Q-006 – Welche Leerraumzeichen dürfen Tokens einer Deklaration trennen?
+
+- Status: Experiment vorbereitet
+- Experiment: `MO-033`
+- Schwerpunkt: Leerzeichen, Tabulator und Zeilenumbruch

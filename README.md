@@ -153,3 +153,7 @@ Every new language feature should ideally follow this lifecycle:
 ## License
 
 See the repository license.
+
+### Erste Interpreter-Testmatrix
+
+Die Experimente `MO-030` bis `MO-033` untersuchen isoliert grundlegende `DIM`-Formen, Groß-/Kleinschreibung, Initialisierung mit `SET` sowie Leerraum. Jeder potenziell fehlschlagende Syntaxfall besitzt ein eigenes ausführbares MonKey-Office-Skript.

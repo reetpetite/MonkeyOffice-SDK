@@ -1,0 +1,27 @@
+id: MO-032
+title: DIM und SET - Initialisierung und Zuweisung
+status: planned
+kind: script-matrix
+language_features:
+  - declaration
+  - assignment
+  - DIM
+  - SET
+questions:
+  - Q-005
+spec_candidates:
+  - SPEC-DECL-002
+  - SPEC-STMT-SET-001
+execution:
+  isolation: one-script-per-case
+  success_signal: msgBox containing the resulting value
+cases:
+  - id: I01
+    script: cases/I01-dim-initializer.monkey
+    focus: Typisierte Deklaration mit Initialisierer
+  - id: I02
+    script: cases/I02-inferred-type.monkey
+    focus: Deklaration ohne AS mit Initialisierer
+  - id: I03
+    script: cases/I03-dim-then-set.monkey
+    focus: Deklaration und dokumentierte SET-Zuweisung

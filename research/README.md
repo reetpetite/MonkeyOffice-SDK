@@ -45,3 +45,18 @@ Der komplette `msgBox()`-Ausdruck muss in MonKey Office auf genau einer Scriptze
 - [`expected-template.md`](expected-template.md) dient zur Vorab-Dokumentation der Erwartung.
 
 Eine Beobachtung aus MonKey Office wird erst nach Konsolidierung in `evidence/` zu einer Grundlage für die normative Spezifikation.
+
+## Syntax- und Statement-Matrizen
+
+Fälle, die bereits beim Parsen scheitern können, werden nicht in ein gemeinsames Skript gepackt. Dafür dient `kind: script-matrix`:
+
+```text
+research/MO-NNN/
+├── experiment.yaml
+├── expected.md
+└── cases/
+    ├── D01-control.monkey
+    └── D02-variant.monkey
+```
+
+Jede Datei wird einzeln ausgeführt. Das Erfolgssignal muss `MO-NNN|FALL-ID` enthalten. Sprint 27 stellt mit MO-030 bis MO-033 die erste Deklarationsmatrix bereit.

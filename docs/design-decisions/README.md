@@ -18,3 +18,5 @@ repository and links to its replacement.
 - [DDD-0001: Repository architecture and dependency direction](DDD-0001-repository-architecture.md)
 - [DDD-0002: Evidence classification](DDD-0002-evidence-classification.md)
 - [DDD-0003: Reproducible interpreter experiments](DDD-0003-experiment-protocol.md)
+
+- [DDD-0004 – Isolierte Script-Matrizen für Syntaxexperimente](DDD-0004-script-matrix-experiments.md)

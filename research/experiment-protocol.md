@@ -138,3 +138,9 @@ An experiment is ready for evidence review when:
 - dangerous or excluded cases are listed,
 - conclusions do not exceed the observed cases,
 - related open questions and earlier experiments are linked.
+
+## 8. Isolierte Script-Matrizen
+
+Für Syntax- und Statementfragen, bei denen ein Parserfehler den gesamten Testlauf verhindert, ist `kind: script-matrix` zu verwenden. Jeder Fall liegt unter `cases/` in einer eigenen `.monkey`-Datei und wird separat ausgeführt. Ein Fall muss ein eindeutiges Erfolgssignal aus Experiment- und Fall-ID enthalten. Wird dieses Signal nicht erreicht, sind Parsermeldung, Laufzeitmeldung und Anwendungszustand getrennt zu erfassen.
+
+Mehrere Varianten dürfen nur dann in derselben Matrix stehen, wenn sie dieselbe eng begrenzte Forschungsfrage beantworten. Die Matrix darf keine Schlussfolgerung vorwegnehmen; erwartete Ergebnisse bleiben in `expected.md` klassifiziert.

@@ -1,0 +1,28 @@
+id: MO-033
+title: DIM - horizontale und vertikale Leerraumvarianten
+status: planned
+kind: script-matrix
+language_features:
+  - lexical-grammar
+  - whitespace
+  - declaration
+questions:
+  - Q-006
+spec_candidates:
+  - SPEC-LEX-002
+execution:
+  isolation: one-script-per-case
+  success_signal: msgBox containing the case ID
+cases:
+  - id: W01
+    script: cases/W01-single-spaces.monkey
+    focus: Kontrollfall mit einfachen Leerzeichen
+  - id: W02
+    script: cases/W02-many-spaces.monkey
+    focus: Mehrere horizontale Leerzeichen
+  - id: W03
+    script: cases/W03-tabs.monkey
+    focus: Tabulatoren zwischen Tokens
+  - id: W04
+    script: cases/W04-line-break-after-dim.monkey
+    focus: Zeilenumbruch innerhalb der Deklaration

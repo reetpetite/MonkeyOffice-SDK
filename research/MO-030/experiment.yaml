@@ -1,0 +1,27 @@
+id: MO-030
+title: DIM - grundlegende Deklarationsformen
+status: planned
+kind: script-matrix
+language_features:
+  - declaration
+  - DIM
+questions:
+  - Q-001
+spec_candidates:
+  - SPEC-DECL-001
+execution:
+  isolation: one-script-per-case
+  success_signal: msgBox containing the case ID
+cases:
+  - id: D01
+    script: cases/D01-basic-number.monkey
+    focus: Einzelne typisierte Variable
+  - id: D02
+    script: cases/D02-two-statements.monkey
+    focus: Zwei getrennte DIM-Anweisungen
+  - id: D03
+    script: cases/D03-comma-shared-type.monkey
+    focus: Zwei Namen vor einem gemeinsamen Typ
+  - id: D04
+    script: cases/D04-comma-repeated-type.monkey
+    focus: Zwei vollständig typisierte Deklarationen in einer Anweisung

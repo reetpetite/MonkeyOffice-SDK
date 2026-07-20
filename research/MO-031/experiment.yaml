@@ -1,0 +1,27 @@
+id: MO-031
+title: Schlüsselwörter und Typnamen - Groß- und Kleinschreibung
+status: planned
+kind: script-matrix
+language_features:
+  - lexical-grammar
+  - declaration
+questions:
+  - Q-004
+spec_candidates:
+  - SPEC-LEX-001
+execution:
+  isolation: one-script-per-case
+  success_signal: msgBox containing the case ID
+cases:
+  - id: C01
+    script: cases/C01-uppercase-keywords.monkey
+    focus: Dokumentierte Schreibweise
+  - id: C02
+    script: cases/C02-lowercase.monkey
+    focus: Vollständig kleingeschriebene Schlüsselwörter und Typname
+  - id: C03
+    script: cases/C03-title-case.monkey
+    focus: Gemischte Standardschreibweise
+  - id: C04
+    script: cases/C04-mixed-case.monkey
+    focus: Beliebig gemischte Groß- und Kleinschreibung
